@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { loginUser, signupUser, logoutUser } from './actions/session_actions';
 import configureStore from './store/store.js';
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -13,5 +14,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.logout = logoutUser;
     // window.signup = signupUser;
 
-    ReactDOM.render(<h1>I'm alive.</h1>, root);
+    ReactDOM.render(<Root store={ store } />, root);
 });
