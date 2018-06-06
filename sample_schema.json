@@ -1,0 +1,71 @@
+{
+    entities: {
+        tasks: {
+          1: {
+            id: 1,
+            type: "moving and packing",
+            date: "06/01/2018",
+            time: "8:00am",
+            location: "825 Battery, San Francisco, CA, 93127",
+            description: "Need help packing",
+            need_vehicle: true,
+            user_id: 11,
+            tasker_id: 28,
+            complete: false
+          },
+          2: {
+            id: 2,
+            type: "laundry",
+            date: "05/20/2018",
+            time: "4:30pm",
+            location: "942 Jackson St, San Francisco, CA, 93127",
+            description: "I need to do laundry so someone please help me",
+            need_vehicle: false,
+            user_id: 11,
+            tasker_id: 31,
+            complete: true
+          }
+        },
+        users: {
+            //curent user
+          11: {
+            id: 11,
+            first_name: "Timmy",
+            last_name: "Smith",
+            email: "john.smith@gmail.com",
+            user_task_ids: [5, 6, 1, 2], //tasks ordered (taken out and used as selector)
+            is_tasker: false,
+            reviews: 0,
+            completed_tasks: 0,
+            rating: null,
+            tasker_description: "",
+            price: null,
+            tasker_task_ids: [] //tasks performed or to perform
+          },
+          //potential tasker for upcoming task (represented in locak slice?)
+          7: {
+            id: 7,
+            first_name: "Harry",
+            last_name: "Labbit",
+            email: "harrylabbit@gmail.com",
+            task_ids: [3, 18], //tasks ordered
+            is_tasker: true,
+            reviews: 20,
+            completed_tasks: 55,
+            rating: "98%",
+            user_description: "I will do anything.",
+            price: 30,
+            tasker_task_ids: [18, 3, 19] //tasks performed or to perform
+          }
+        }
+      },
+    ui: {
+        loading:true
+    },
+    errors:{
+
+    },
+    session:{
+
+    }
+}
