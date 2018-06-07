@@ -6,6 +6,10 @@ $border-grey:  #DCE0E6;
     border-bottom: 1px solid $border-grey;
 }
 
+.navBar-big {
+    border-bottom: 1px solid $border-grey;
+}
+
 .nav-button{
     padding: 5px;
     // border: 1px solid $border-grey;
@@ -35,7 +39,7 @@ $border-grey:  #DCE0E6;
 }
 
 .navBar-logo {
-    background-image: image-url('logo.png');
+    background-image: url('https://i.imgur.com/rFnFZso.png');
     background-size: contain;
     width: 150px;
     height: 50px;
