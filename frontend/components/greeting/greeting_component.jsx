@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logoutUser }) => {
-    // debugger
     const sessionLinks = () => (
         <div className='navBar-big'>
             <div className='navBar-small'>
