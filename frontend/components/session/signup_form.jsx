@@ -9,6 +9,10 @@ class SignupForm extends React.Component {
         super(props);
         this.state = this.props.fill;
     }
+
+    componentDidMount() {
+        this.props.removeErrors();
+    }
     
     update(field){
         return e => {
@@ -31,7 +35,7 @@ class SignupForm extends React.Component {
     renderErrors() {
         if(this.props.errors){
              return (   
-                <ul>
+                <ul className = 'session-errors'>
                     {this.props.errors.map((error, i) => (
                         <li key={`error-${i}`}>
                             {error}
@@ -45,40 +49,50 @@ class SignupForm extends React.Component {
     render(){
 
         return (
-            <form onSubmit={(e) => this.handleSubmit(e)}>
-                {this.renderErrors()}
-                <div>
-                    <label>
-                        First Name:
-                        <input type='text' value={this.state.first_name} onChange={this.update('first_name')} />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Last Name:
-                        <input type='text' value={this.state.last_name} onChange={this.update('last_name')} />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Zipcode:
-                        <input type='text' value={this.state.zipcode} onChange={this.update('zipcode')} />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Email:
-                        <input type='text' value={this.state.email} onChange={this.update('email')} />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Password:
-                        <input type='password' value={this.state.password} onChange={this.update('password')} />
-                    </label>
-                </div>
-                <input type = 'submit' value={this.props.formType}/>
-            </form>
+            <div className='login-splash'>
+                <form className ='session-form-signup' onSubmit={(e) => this.handleSubmit(e)}>
+                    <div className='session-input'>
+                        <div className='logo'> </div>
+                    </div>
+                    <div className = 'session-input'>
+                        <label>
+                            <span className='session-title'>First Name</span>
+                            <input className = 'session-text-box' type='text' value={this.state.first_name} onChange={this.update('first_name')} />
+                        </label>
+                    </div>
+                    <div className='session-input'>
+                        <label>
+                            <span className='session-title'> Last Name</span>   
+                            <input className='session-text-box' type='text' value={this.state.last_name} onChange={this.update('last_name')} />
+                        </label>
+                    </div>
+                    <div className='session-input'>
+                        <label>
+                            <span className='session-title'> Email</span>   
+                            <input className='session-text-box' type='text' value={this.state.email} onChange={this.update('email')} />
+                        </label>
+                    </div>
+                    <div className='session-input'>
+                        <label>
+                            <span className='session-title'> Password</span>   
+                            <input className='session-text-box' type='password' value={this.state.password} onChange={this.update('password')} />
+                        </label>
+                    </div>
+                    <div className='session-input'>
+                        <label>
+                            <span className='session-title'> Zipcode</span>
+                            <input className='session-text-box' type='text' value={this.state.zipcode} onChange={this.update('zipcode')} />
+                        </label>
+                    </div>
+                    {this.renderErrors()}
+                    <div className='session-input'>
+                        <input className='session-button' type = 'submit' value='Create Account'/>
+                    </div>
+                    <span >
+                        <Link className='other-session-link' to='/login'>Login</Link>
+                    </span> 
+                </form>
+            </div>
         )
 
     }

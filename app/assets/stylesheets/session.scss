@@ -1,0 +1,148 @@
+$green: rgb(81, 175, 51);
+$darkgreen: rgb(67, 142, 41);
+$border-grey:  rgb(204, 206, 210);
+
+
+.session-form-login {
+    width: 400px;
+    height: 450px;
+    border: 1px solid rgb(211, 215, 220);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    // margin: auto;
+    background: white;
+    // position: relative;
+    padding: 24px 32px;
+    font-weight: 300;
+    box-sizing: border-box;
+    box-shadow: grey;
+    margin-top:50px;
+}
+
+.session-form-signup {
+    width: 400px;
+    height: 610px;
+    border: 1px solid rgb(211, 215, 220);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    // margin: auto;
+    background: white;
+    // position: relative;
+    padding: 24px 32px;
+    font-weight: 300;
+    box-sizing: border-box;
+    box-shadow: grey;
+    margin-top:50px;
+}
+
+.logo {
+    background-image: image-url('logo.png');
+    background-size: contain;
+    width: 250px;
+    height: 100px;
+    align-content: center;
+    margin-left: 50px;
+    background-repeat: no-repeat; 
+}
+
+.session-input label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+    background: inherit;
+}
+
+.session-input {
+    margin-bottom: 12px;
+    background: white;
+}
+
+.session-title {
+    font-size: 10px;
+    color: rgb(204, 206, 210);
+    margin-bottom: 5px;
+}
+
+.session-button {
+    border: 1px solid rgb(211, 215, 220);
+    border-radius: 5px;
+    background-color: rgb(81, 175, 51);
+    color: white;
+    text-align: center;
+    font-size: 13px;
+    box-sizing: border-box;
+    width: 335px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.session-button:hover {
+    background-color: rgb(67, 142, 41);
+}
+
+.session-text-box {
+    border: 1px solid rgb(220, 224, 230);
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 327px;
+    height: 30px;
+    background: white;
+    line-height: 24px;
+    font-size: 13px;
+    font-weight: 400;
+    word-spacing: .6px;
+    letter-spacing: .3px;
+    color: grey;
+}
+
+.session-text-box:hover {
+    border: 1px solid red;
+}
+
+.session-errors {
+    margin-left: 5px;
+    font-size: 10px;
+    color: red;
+}
+
+.session-errors  li {
+    font-size: 10px;
+}
+
+.login-splash {
+    background-image: image-url('labbit-dining-room-magic.jpg');
+    /* background-size: 100vw 100vh; */
+    background-size: cover;
+    background-position-y: -130px;
+    background-repeat: no-repeat;
+    height: 100vh;
+    // height: 100%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.navBar {
+    background-color: rgb(182, 180, 180);
+    opacity: 0.95;
+    padding: 5px;
+}
+
+.session-or {
+    padding-left: 150px;
+    color: rgb(204, 206, 210);
+    font-size: 14px;
+}
+
+.other-session-link {
+    color: rgb(81, 175, 51);
+    font-size: 10px;
+    padding-left: 290px;
+}
+

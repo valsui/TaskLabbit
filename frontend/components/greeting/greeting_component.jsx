@@ -4,23 +4,34 @@ import { Link, Redirect } from 'react-router-dom';
 const Greeting = ({ currentUser, logoutUser }) => {
     // debugger
     const sessionLinks = () => (
-        <nav className="login-signup">
-            <Link to="/login">Login</Link>
-            &nbsp;or&nbsp;
-      <Link to="/signup">Sign up!</Link>
-        </nav>
+        <div className='navBar'>
+            <nav className="login-signup">
+                <div className = 'navBar-logo'></div>
+                <div className = 'navBar-buttons'>
+                    <div className='nav-button'>
+                        <Link to="/login">Login</Link>
+                    </div>
+                    &nbsp;or&nbsp;
+                    <div className='nav-button'>
+                        <Link to="/signup">Sign up!</Link>
+                    </div>
+                </div>
+            </nav>
+        </div>
     );
     
     const handleClick = (e) => {
         e.preventDefault();
-        // debugger;
-        logoutUser().then(() => <Redirect to='/'/> ); //why not working???
+        logoutUser();
     }
 
     const personalGreeting = () => (
         <hgroup className="header-group">
             <h2 className="header-name">Hi, {`${currentUser.first_name} ${currentUser.last_name}`}!</h2>
-            <button className="header-button" onClick={(e) => handleClick(e)}>Log Out</button>
+            <div className='navBar'>
+                <div className='navBar-logo'></div>
+                <button className="header-logout-button" onClick={(e) => handleClick(e)}>Log Out</button>
+            </div>
         </hgroup>
     );
 
