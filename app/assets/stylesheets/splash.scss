@@ -1,0 +1,72 @@
+$green: rgb(81, 175, 51);
+$darkgreen: rgb(67, 142, 41);
+$border-grey:  #DCE0E6;
+$text-grey: rgb(179, 165, 165);
+
+.splash-main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.splash-head-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 1300px;
+    height: 500px;;
+    background-image: url('https://i.imgur.com/5SZRejd.jpg');
+    border: 1px solid $border-grey;
+    box-shadow: $border-grey;
+}
+
+.main-title {
+    font-size: 30px;
+    width: 500px;
+    text-align: center;
+}
+
+.main-subtitle {
+    margin-top: 20px;
+}
+
+.main-search-container {
+    border: 1px solid $border-grey;
+    width: 450px;
+    border-radius: 5px;
+    margin-top: 20px;
+    height: 20px;
+    padding: 10px;
+    color: $text-grey;
+    letter-spacing: 1px;
+    line-height: 24px;
+}
+
+.main-buttons-container {
+    max-width: 655px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center
+}
+
+.task-button {
+    // display: inline-block;
+    float: left;
+    padding: 10px;
+    border: 1px solid $green;
+    border-radius: 5px;
+    font-size: 12px;
+    color: $green;
+    width: 100px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.main-between-text {
+    padding: 50px;
+}
+

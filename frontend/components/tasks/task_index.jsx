@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskItem from './task_index_item';
+import GreetingContainer from '../greeting/greeting_container';
 
 class TaskIndex extends React.Component {
     // contructor(props){
@@ -8,7 +9,8 @@ class TaskIndex extends React.Component {
 
     render(){
         return (
-            <div>
+            <div className='task-index-splash'>
+                <GreetingContainer/>
                 <ul></ul>
             </div>
         )

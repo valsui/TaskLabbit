@@ -1,7 +1,7 @@
 $green: rgb(81, 175, 51);
 $darkgreen: rgb(67, 142, 41);
-$border-grey:  rgb(204, 206, 210);
-
+$border-grey:  #DCE0E6;
+$text-grey: rgb(179, 165, 165);
 
 .session-form-login {
     width: 400px;
@@ -98,6 +98,7 @@ $border-grey:  rgb(204, 206, 210);
     word-spacing: .6px;
     letter-spacing: .5px;
     color: rgb(179, 165, 165);
+    padding: 15px;
 }
 
 .session-text-box:focus {
