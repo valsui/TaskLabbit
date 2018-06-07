@@ -2,6 +2,7 @@ $green: rgb(81, 175, 51);
 $darkgreen: rgb(67, 142, 41);
 $border-grey:  #DCE0E6;
 $text-grey: rgb(179, 165, 165);
+$background-grey: rgb(249, 250, 251);
 
 .splash-main {
     display: flex;
@@ -19,6 +20,8 @@ $text-grey: rgb(179, 165, 165);
     width: 1300px;
     height: 500px;;
     background-image: url('https://i.imgur.com/5SZRejd.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
     border: 1px solid $border-grey;
     box-shadow: $border-grey;
 }
@@ -48,9 +51,24 @@ $text-grey: rgb(179, 165, 165);
     margin-top: 20px;
     height: 20px;
     padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.search {
     color: $text-grey;
     letter-spacing: 1px;
     line-height: 24px;
+    width: 400px;
+}
+
+.far fa-search {
+    color: $green;
+}
+
+.main-search-container i {
+    width: 25px;
+    height: 25px;
 }
 
 .main-buttons-container {
@@ -78,8 +96,8 @@ $text-grey: rgb(179, 165, 165);
 }
 
 .main-between-text {
-    padding: 50px;
-    font-size: 30px;
+    padding: 40px;
+    font-size: 20px;
     text-align: center;
     vertical-align: baseline;
     letter-spacing: normal;
@@ -88,3 +106,96 @@ $text-grey: rgb(179, 165, 165);
     font-weight: 100;
 }
 
+.splash-body-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+    height: 500px;;
+}
+
+.splash-body-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.splash-body-buttons-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.splash-body-image-top {
+    background-image: url('https://i.imgur.com/K31cZkR.jpg');
+    width: 400px;
+    height: 250px;
+    background-size: cover;
+    background-position-y: -50px;
+    background-repeat: no-repeat;
+    border: 1px solid $border-grey;
+    margin-right: 10px;
+}
+
+.splash-body-button-top {
+    // margin-left: 10px;
+    height: 250px;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: $background-grey;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.splash-body-button-top div {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+// .splash-body-button {
+//     float: left;
+//     padding: 10px;
+//     border: 1px solid $green;
+//     border-radius: 5px;
+//     font-size: 12px;
+//     color: white;
+//     background: $green;
+//     width: 100px;
+//     text-align: center;
+// }
+
+.splash-body-buttons-bottom {
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 250px;
+    margin-top: 10px;
+}
+
+.splash-body-bottom{
+    height: 250px;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: $background-grey;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.splash-body-bottom div {
+    margin-bottom: 10px;
+}
+
+.splash-body-image-bottom-3 {
+    width: 240px;
+    height: 100px;
+}

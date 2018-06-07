@@ -6,14 +6,13 @@ $text-grey: rgb(179, 165, 165);
 .session-form-login {
     width: 400px;
     height: 450px;
+    overflow: auto;
     border: 1px solid rgb(211, 215, 220);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // margin: auto;
     background: white;
-    // position: relative;
     padding: 24px 32px;
     font-weight: 300;
     box-sizing: border-box;
@@ -24,14 +23,13 @@ $text-grey: rgb(179, 165, 165);
 .session-form-signup {
     width: 400px;
     height: 610px;
+    overflow: auto;
     border: 1px solid rgb(211, 215, 220);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // margin: auto;
     background: white;
-    // position: relative;
     padding: 24px 32px;
     font-weight: 300;
     box-sizing: border-box;
@@ -135,8 +133,6 @@ $text-grey: rgb(179, 165, 165);
 
 .navBar {
     background-color: rgb(255, 253, 253);
-    // opacity: 0.95;
-    // padding: 2px;
 }
 
 .session-or {

@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
     };
 
     render() {
-
+        
         return (
             <div className = 'login-splash'>
                 <form className='session-form-login' onSubmit={(e) => this.handleSubmit(e)}>

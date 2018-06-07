@@ -28,6 +28,7 @@ class MainHeadComponent extends React.Component {
                             <TaskButtonContainer />
                         </div>
                         <div className='main-search-container'>
+                            <i className="far fa-search"></i>
                             <input className='search' type='text' placeholder='Search Task'/>
                         </div>
                     </div>
