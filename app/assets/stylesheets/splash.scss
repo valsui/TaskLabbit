@@ -5,9 +5,10 @@ $text-grey: rgb(179, 165, 165);
 
 .splash-main {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    height: 1500px;
 }
 
 .splash-head-container {
