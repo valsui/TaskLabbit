@@ -93,11 +93,15 @@ $border-grey:  rgb(204, 206, 210);
     height: 30px;
     background: white;
     line-height: 24px;
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 11px;
+    font-weight: 100;
     word-spacing: .6px;
-    letter-spacing: .3px;
-    color: grey;
+    letter-spacing: .5px;
+    color: rgb(179, 165, 165);
+}
+
+.session-text-box:focus {
+    border: 1px solid $darkgreen;
 }
 
 .session-text-box:hover {
@@ -129,9 +133,9 @@ $border-grey:  rgb(204, 206, 210);
 }
 
 .navBar {
-    background-color: rgb(182, 180, 180);
-    opacity: 0.95;
-    padding: 5px;
+    background-color: rgb(255, 253, 253);
+    // opacity: 0.95;
+    // padding: 2px;
 }
 
 .session-or {

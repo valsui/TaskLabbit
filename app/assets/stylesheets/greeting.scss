@@ -1,9 +1,65 @@
 $green: rgb(81, 175, 51);
 $darkgreen: rgb(67, 142, 41);
-$border-grey:  rgb(204, 206, 210);
+$border-grey:  #DCE0E6;
 
-.header-logout-button{
+.navBar {
+    border-bottom: 1px solid $border-grey;
+}
+
+.nav-button{
     padding: 5px;
-    border: 1px solid $border-grey;
-    border-radius: 5px;
+    // border: 1px solid $border-grey;
+    // border-radius: 5px;
+    // height: 20px;
+    color: $green;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.nav-button-link {
+    font-size: 12px;
+}
+
+.navBar-small{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width: 1000px;
+    margin: auto;
+}
+
+.navBar-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+.navBar-logo {
+    background-image: image-url('logo.png');
+    background-size: contain;
+    width: 150px;
+    height: 50px;
+    align-content: center;
+    background-repeat: no-repeat; 
+    margin-left: 20px;
+}
+
+.header-name {
+    font-weight: 900;
+    color: $green;
+    font-size: 20px;
+    margin: 50px;
+}
+
+
+.header-login {
+    display:flex;
+    justify-content: space-evenly;
+    width: 1000px;
+    margin: auto;
+}
+
+.user-picture {
+    height: 100px;
+    width: 100px;
 }
