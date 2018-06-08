@@ -5,6 +5,11 @@ import GreetingContainer from '../greeting/greeting_container';
 
 class MainHeadComponent extends React.Component {
 
+
+    componentDidMount() {
+        this.props.removeTaskFromUI();
+    }
+
     render() {
         return (
             <div>
@@ -20,15 +25,15 @@ class MainHeadComponent extends React.Component {
                             Choose from over 60,000 carefully vetted and feedback rated Labbits to get quick help
                         </div>
                         <div className='main-buttons-container'>
-                            <TaskButtonContainer />
-                            <TaskButtonContainer />
-                            <TaskButtonContainer />
-                            <TaskButtonContainer />
-                            <TaskButtonContainer />
-                            <TaskButtonContainer />
+                            <TaskButtonContainer taskName = 'Mounting & Installation'/>
+                            <TaskButtonContainer taskName = 'Moving & Packing'/>
+                            <TaskButtonContainer taskName = 'Furniture Assembly'/>
+                            <TaskButtonContainer taskName = 'Home Improvement'/>
+                            <TaskButtonContainer taskName = 'General Handyman'/>
+                            <TaskButtonContainer taskName = 'Heavy Lifting'/>
                         </div>
                         <div className='main-search-container'>
-                            <i className="far fa-search"></i>
+                            <i className="fas fa-search"></i>
                             <input className='search' type='text' placeholder='Search Task'/>
                         </div>
                     </div>

@@ -9,7 +9,7 @@ $background-grey: rgb(249, 250, 251);
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-    height: 1500px;
+    height: 1300px;
 }
 
 .splash-head-container {
@@ -62,11 +62,12 @@ $background-grey: rgb(249, 250, 251);
     width: 400px;
 }
 
-.far fa-search {
+.fa-search {
     color: $green;
 }
 
 .main-search-container i {
+    margin-top: 4px;
     width: 25px;
     height: 25px;
 }
@@ -111,7 +112,7 @@ $background-grey: rgb(249, 250, 251);
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 1000px;
+    width: 900px;
     height: 500px;;
 }
 
@@ -120,82 +121,111 @@ $background-grey: rgb(249, 250, 251);
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .splash-body-buttons-bottom{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-.splash-body-image-top {
+.splash-body-top-image {
     background-image: url('https://i.imgur.com/K31cZkR.jpg');
-    width: 400px;
-    height: 250px;
+    width: 75%;
+    height: 275px;
     background-size: cover;
-    background-position-y: -50px;
+    background-position-y: -180px;
     background-repeat: no-repeat;
-    border: 1px solid $border-grey;
+    // border: 1px solid $border-grey;
     margin-right: 10px;
 }
 
 .splash-body-button-top {
-    // margin-left: 10px;
-    height: 250px;
-    max-width: 200px;
+    height: 275px;
+    width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: $background-grey;
+    background: #f9fafb;
     padding: 10px;
     box-sizing: border-box;
+    // border: 1px solid grey;
 }
 
 .splash-body-button-top div {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     text-align: center;
-    font-size: 20px;
-}
-
-// .splash-body-button {
-//     float: left;
-//     padding: 10px;
-//     border: 1px solid $green;
-//     border-radius: 5px;
-//     font-size: 12px;
-//     color: white;
-//     background: $green;
-//     width: 100px;
-//     text-align: center;
-// }
-
-.splash-body-buttons-bottom {
-    width: 600px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    height: 250px;
-    margin-top: 10px;
+    font-size: 19px;
+    line-height: 30px;
 }
 
 .splash-body-bottom{
-    height: 250px;
-    max-width: 200px;
+    margin-top: 60px;
+    height: 300px;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: $background-grey;
-    padding: 20px;
+    background: #f9fafb;
     box-sizing: border-box;
+    // border: 1px solid grey;
+
 }
 
 .splash-body-bottom div {
     margin-bottom: 10px;
 }
 
-.splash-body-image-bottom-3 {
-    width: 240px;
-    height: 100px;
+
+.bottom-button {
+    float: left;
+    padding: 8px;
+    padding-right: 6px;
+    padding-left: 6px;
+    border: 1px solid $green;
+    box-shadow: $border-grey;
+    border-radius: 2px;
+    font-size: 11px;
+    color: white;
+    background: $green;
+    width: 120px;
+    text-align: center;
+    // margin-left: 5px;
+    // margin-right: 5px;
+    letter-spacing: .5px;
+}
+
+.bottom-button-tb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.splash-body-bottom-image-1{
+    // padding-top: 40px;
+    // // display: flex;
+    // box-sizing: border-box;
+    background-image: url('https://i.imgur.com/16pSOAQ.jpg');
+    background-size: cover;
+    width: 270px;
+    height: 175px;
+}
+.splash-body-bottom-image-3{
+    background-image: url('https://i.imgur.com/vYn7U6E.jpg');
+    background-size: cover;
+    width: 270px;
+    height: 175px;
+}
+.splash-body-bottom-image-2{
+    background-image: url('https://i.imgur.com/rB1uJBO.jpg');
+    background-size: cover;
+    width: 270px;
+    height: 175px;
 }

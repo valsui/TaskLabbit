@@ -6,9 +6,6 @@ import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    
-    // window.dispatch = store.dispatch;
-    // window.getState = store.getState;
 
     let store;
     if (window.currentUser) {
