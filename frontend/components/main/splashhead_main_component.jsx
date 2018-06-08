@@ -2,6 +2,7 @@ import React from 'react';
 import MainBodyContainer from './splashbody_main_container';
 import TaskButtonContainer from '../tasks/task_button_container';
 import GreetingContainer from '../greeting/greeting_container';
+import TaskSearchContainer from '../tasks/task_search_container';
 
 class MainHeadComponent extends React.Component {
 
@@ -33,8 +34,7 @@ class MainHeadComponent extends React.Component {
                             <TaskButtonContainer taskName = 'Heavy Lifting'/>
                         </div>
                         <div className='main-search-container'>
-                            <i className="fas fa-search"></i>
-                            <input className='search' type='text' placeholder='Search Task'/>
+                            <TaskSearchContainer/>
                         </div>
                     </div>
 

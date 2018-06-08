@@ -5,12 +5,13 @@ import { removeTaskFromUI } from '../../actions/task_button_action';
 
 const mapStateToProps = (state, ownProps) => {
     return {
+        // state:state
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeTaskFromUI: () => dispatch(removeTaskFromUI) 
+        removeTaskFromUI: () => dispatch(removeTaskFromUI()) 
     }
 }
 

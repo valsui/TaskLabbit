@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskButtonComponent);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TaskButtonComponent));

@@ -2,7 +2,7 @@ import { RECEIVE_TASK_TYPE, REMOVE_TASK_TYPE } from '../actions/task_button_acti
 
 const defaultState = { task: '' };
 const uiReducer = (state = defaultState, action) => {
-    // debugger; THIS IS GIVING WEIRD ERRORS!
+    // debugger; //THIS IS GIVING WEIRD ERRORS!
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_TASK_TYPE:

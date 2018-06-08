@@ -10,7 +10,7 @@ class TaskButtonComponent extends React.Component {
     handleClick(e){
         e.preventDefault();
         this.props.addTasktoUI(this.props.taskName);
-        // this.props.history.push('/task/new');
+        this.props.history.push('/task/new');
     } 
 
     render() {
