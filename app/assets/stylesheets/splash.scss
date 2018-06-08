@@ -17,13 +17,13 @@ $background-grey: rgb(249, 250, 251);
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 1300px;
+    width: 60vw;
     height: 500px;;
     background-image: url('https://i.imgur.com/5SZRejd.jpg');
     background-size: cover; 
     background-repeat: no-repeat;
     border: 1px solid $border-grey;
-    box-shadow: $border-grey;
+    border-top: none;
 }
 
 .main-title {
@@ -97,8 +97,8 @@ $background-grey: rgb(249, 250, 251);
 }
 
 .main-between-text {
-    padding: 40px;
-    font-size: 20px;
+    padding: 50px;
+    font-size: 30px;
     text-align: center;
     vertical-align: baseline;
     letter-spacing: normal;
@@ -112,7 +112,7 @@ $background-grey: rgb(249, 250, 251);
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 900px;
+    width: 45vw;
     height: 500px;;
 }
 
@@ -130,6 +130,7 @@ $background-grey: rgb(249, 250, 251);
     justify-content: space-between;
     box-sizing: border-box;
     width: 100%;
+    margin-top: 20px;
 }
 
 .splash-body-top-image {
@@ -137,11 +138,12 @@ $background-grey: rgb(249, 250, 251);
     width: 75%;
     height: 275px;
     background-size: cover;
-    background-position-y: -180px;
+    background-position-y: -150px;
     background-repeat: no-repeat;
     // border: 1px solid $border-grey;
     margin-right: 10px;
-    box-shadow: $border-grey;
+    box-shadow: 0.1px 0.1px 9px -1.8px #DCE0E6;
+    border-radius: 5px;
 }
 
 .splash-body-button-top {
@@ -166,7 +168,7 @@ $background-grey: rgb(249, 250, 251);
 
 .splash-body-bottom{
     margin-top: 60px;
-    height: 300px;
+    height: 324px;
     width: 30%;
     display: flex;
     justify-content: center;
@@ -179,7 +181,7 @@ $background-grey: rgb(249, 250, 251);
 }
 
 .splash-body-bottom div {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 
@@ -209,24 +211,28 @@ $background-grey: rgb(249, 250, 251);
     padding: 20px;
 }
 
+.above-text{
+    font-size:16px;
+}
+
 .splash-body-bottom-image-1{
     // padding-top: 40px;
     // // display: flex;
     // box-sizing: border-box;
     background-image: url('https://i.imgur.com/16pSOAQ.jpg');
     background-size: cover;
-    width: 270px;
+    width: 258px;
     height: 175px;
 }
 .splash-body-bottom-image-3{
     background-image: url('https://i.imgur.com/vYn7U6E.jpg');
     background-size: cover;
-    width: 270px;
+    width: 258px;
     height: 175px;
 }
 .splash-body-bottom-image-2{
     background-image: url('https://i.imgur.com/rB1uJBO.jpg');
     background-size: cover;
-    width: 270px;
+    width: 258px;
     height: 175px;
 }
