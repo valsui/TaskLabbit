@@ -1,4 +1,4 @@
-initialState = ["Delivery",
+const initialState = ["Delivery",
                 "Event Planning",
                 "Cleaning",
                 "Event Staffing",
@@ -44,10 +44,12 @@ initialState = ["Delivery",
                 "Home Improvement",
                 "General Handyman"];
 
-
-export const taskReducer = (state = initialState, action) => {
+const taskReducer = (state = initialState, action) => {
+    Object.freeze(state);
     switch (action.type) {
         default:
         return state;
     }
 };
+
+export default taskReducer;

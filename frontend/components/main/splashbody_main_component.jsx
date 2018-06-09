@@ -49,7 +49,7 @@ class MainBodyComponent extends React.Component{
                                 Clean your space
                             </div>
                             <span className='splash-body-button-bottom'>
-                                <TaskButtonContainer taskName='Moving & Packing' buttonText='Book Help Moving' addClass='bottom-button'/>
+                                <TaskButtonContainer taskName='Deep Clean' buttonText='Book Cleaning' addClass='bottom-button'/>
                             </span>   
                         </div>             
                     </div>

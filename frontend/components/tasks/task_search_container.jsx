@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-      tasks: state.entities.tasks
+      tasks: state.entities.tasks.map((t) => t.toLowerCase())
     }
 }
 
