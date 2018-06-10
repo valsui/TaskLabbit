@@ -8,7 +8,7 @@ class TaskSearch extends React.Component{
                 search: '',
                 foundTasks: ['Minor Home Repairs', 'Mounting & Installation', 'Furniture Assembly', 'Moving & Packing'] //default
             };
-        
+        // debugger;
         this.chooseTask = this.chooseTask.bind(this);
     }
 
@@ -25,7 +25,8 @@ class TaskSearch extends React.Component{
             matches = this.state.foundTasks;
         }else{
             let query = this.state.search;
-            this.props.tasks.forEach((t) => {
+            const keys = Object.keys(this.props.tasks).map(e => e.toLowerCase());
+            keys.forEach((t) => {
                 if(this.fuzzySearch(t, query)){
                     matches.push(t);
                 }
@@ -62,7 +63,7 @@ class TaskSearch extends React.Component{
             return (<li key={t}
                 className='search-task-result'
                 onClick={(e) => this.chooseTask(e)}>
-                <img className='search-task-img' src= 'https://images-na.ssl-images-amazon.com/images/I/31-26Ts4UVL.jpg' />
+                <img className='search-task-img' src= {this.props.tasks[this.capitalize(t)]} />
                 <span>{this.capitalize(t)}</span>
             </li>)
         })
@@ -81,7 +82,7 @@ class TaskSearch extends React.Component{
                 <ul className='search-list-items'>
                     <ReactCSSTransitionGroup
                         transitionName='auto'
-                        transitionEnterTimeout={1000}
+                        transitionEnterTimeout={500}
                         transitionLeaveTimeout={500}>
                         {results}
                     </ReactCSSTransitionGroup>
