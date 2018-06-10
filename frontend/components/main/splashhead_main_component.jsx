@@ -33,9 +33,7 @@ class MainHeadComponent extends React.Component {
                             <TaskButtonContainer taskName = 'General Handyman'/>
                             <TaskButtonContainer taskName = 'Heavy Lifting'/>
                         </div>
-                        <div className='main-search-container'>
                             <TaskSearchContainer/>
-                        </div>
                     </div>
 
                     <div className='main-between-text'>

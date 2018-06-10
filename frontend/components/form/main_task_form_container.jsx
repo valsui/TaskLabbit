@@ -22,23 +22,15 @@ import TaskForm from './main_task_form_component';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        task: {
-            type: this.state.ui.task,
-            interest: '',
-            location: '',
-            duration: '',
-            details: '',
-            tasker: '',
-            time: '',
-            date: ''
-        }
+        task: state.ui.task,
+        currentUser: state.session.currentUser
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        // ajax patch - thunk action
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         // ajax patch - thunk action
+//     }
+// }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TaskForm))
+export default withRouter(connect(mapStateToProps, null)(TaskForm))

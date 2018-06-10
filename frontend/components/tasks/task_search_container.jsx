@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskSearch);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TaskSearch));

@@ -1,15 +1,15 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class TaskSearch extends React.Component{
     constructor(props){
         super(props);
         this.state = {
                 search: '',
-                foundTasks: ['Minor Home Repairs', 'Mounting & Installation', 'Furniture Assembly', 'Moving & Packing'] 
+                foundTasks: ['Minor Home Repairs', 'Mounting & Installation', 'Furniture Assembly', 'Moving & Packing'] //default
             };
-        this.displayList = this.displayList.bind(this);
+        // this.displayList = this.displayList.bind(this);
         this.chooseTask = this.chooseTask.bind(this);
-        // debugger;
     }
 
     fuzzySearch(string, query){
@@ -31,6 +31,9 @@ class TaskSearch extends React.Component{
                 }
             })
         }
+        if (matches.length > 6){
+            matches = matches.slice(0,6);
+        }
         return matches;
     }
 
@@ -39,14 +42,16 @@ class TaskSearch extends React.Component{
     }
 
     //handler on click displays the found tasks
-    displayList(){
+    displayList(e){
+        // if()
+        // const list = document.getElementsById('search-task-result');
 
     }
 
     //handles the action to set global ui state , only should work when clicking on li
     chooseTask(e){
-        const task = e.currentTarget.innerText;
-
+        const task = e.target.innerText;
+        debugger;
         if(task){
             this.setState({search: this.capitalize(task)});
             this.props.addTasktoUI(this.capitalize(task));
@@ -56,29 +61,37 @@ class TaskSearch extends React.Component{
 
     capitalize(string){
         let search = string.split(" ");
-        return search.map((s) => `${s[0].toUpperCase()}${s.slice(1).toLowerCase()}`).join("");
+        return search.map((s) => `${s[0].toUpperCase()}${s.slice(1).toLowerCase()}`).join(" ");
     }
 
     render(){
         const results = this.findMatches().map((t) => {
             return (<li key={t}
                 className='search-task-result'
-                onClick={() => this.chooseTask(t)}>
-                {t}
+                onClick={(e) => this.chooseTask(e)}>
+                <img className='search-task-img' src= 'https://images-na.ssl-images-amazon.com/images/I/31-26Ts4UVL.jpg' />
+                <span>{this.capitalize(t)}</span>
             </li>)
         })
 
         return (
-            <div>
+            <div className='main-search-container'>
+                <div className = 'search-box' >
                 <i className="fas fa-search"></i>
                 <input 
-                    className='search' 
+                    className='search-box-input' 
                     type='text' value = {this.state.search} 
-                    placeholder='Search Task' 
+                    placeholder='Need Something Different?' 
                     onChange = {this.handleChange()}
-                    onClick={this.displayList} />
+                    />
+                </div>
                 <ul className='search-list-items'>
-                    {results}
+                    <ReactCSSTransitionGroup
+                        transitionName='auto'
+                        transitionEnterTimeout={1000}
+                        transitionLeaveTimeout={500}>
+                        {results}
+                    </ReactCSSTransitionGroup>
                 </ul>
             </div>
         )

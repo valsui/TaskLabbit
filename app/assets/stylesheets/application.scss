@@ -13,8 +13,9 @@
  *= require_self
  */
 
- @import "reset.scss";
- @import "session.scss";
- @import "splash_head.scss";
- @import "splash_body.scss";
- @import "greeting.scss";
+ //reset
+ @import "variables/reset.scss";
+ //global
+ @import "variables/variables.scss";
+ //api
+ @import "components/*";

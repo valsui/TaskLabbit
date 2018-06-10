@@ -1,8 +1,8 @@
-$green: rgb(81, 175, 51);
-$darkgreen: rgb(67, 142, 41);
-$border-grey:  #DCE0E6;
-$text-grey: rgb(179, 165, 165);
-$background-grey: rgb(249, 250, 251);
+// $green: rgb(81, 175, 51);
+// $darkgreen: rgb(67, 142, 41);
+// $border-grey:  #DCE0E6;
+// $text-grey: rgb(179, 165, 165);
+// $background-grey: rgb(249, 250, 251);
 
 // *{ border: 1px solid red !important}
 
@@ -44,17 +44,6 @@ $background-grey: rgb(249, 250, 251);
     font-weight: 100;
     color: $text-grey;
     text-align: center;
-}
-
-.main-search-container {
-    border: 1px solid $border-grey;
-    width: 450px;
-    border-radius: 5px;
-    margin-top: 20px;
-    height: 20px;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
 }
 
 .search {

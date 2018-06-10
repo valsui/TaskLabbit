@@ -2,18 +2,27 @@ import React from 'react';
 import TaskDetailsText from './task_details_text_component';
 import TaskLocation from './task_location_component';
 import TaskDuration from './task_duration_component';
-import TaskInterest from './task_interest_component';
+import TaskVehicle from './task_vehicle_component';
 
 
-const TaskDetailsForm = (props) => {
-    return (
-        <div>
-            <TaskInterest/>
-            <TaskLocation/>
-            <TaskDuration/>
-            <TaskDetailsText/>
-        </div>
-    )
+class TaskDetailsForm extends React.Component{
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        return(
+            <div>
+                <TaskLocation location = {this.props.currentState.location} handleChange = {this.props.handleChange} handleSubmit = {this.props.handleSubmit}/>
+                <TaskDuration duration={this.props.currentState.duration} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit}/>
+                <TaskVehicle need_vehicle={this.props.currentState.need_vehicle} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} />
+                <TaskDetailsText details={this.props.currentState.details} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit}/>
+            </div >
+        )
+
+    }
+    
+
 }
 
 export default TaskDetailsForm;
