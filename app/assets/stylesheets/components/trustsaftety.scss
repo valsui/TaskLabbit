@@ -1,0 +1,27 @@
+.security-banner{
+    display: flex;
+    justify-content: center;
+    border-bottom: $border; 
+    background: #E8EBEF;
+
+    span {
+        padding: 6px;
+    }
+
+    .title, .next-title {
+        font-weight: bold;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    .next-title {
+        font-weight: normal;
+        margin-left: -7px;
+    }
+    
+    .badge {
+        width: 25px;
+        height: 35px;
+        padding: 5px;
+    }
+}

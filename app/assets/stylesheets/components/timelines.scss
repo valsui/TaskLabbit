@@ -1,0 +1,25 @@
+.timeline {
+
+    border-bottom: $border;
+    
+    .form-timeline-container{
+        display: flex;
+        justify-content: space-around;
+        color: $border-grey;
+        width: 50%;
+        margin: auto;
+    
+        span {
+            font-size: 11px;
+            margin-left: 7px;
+        }
+    
+        div {
+            padding: 7px;
+        }
+    
+        .bold {
+            color: black;
+        }
+    }
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 import GreetingContainer from '../greeting/greeting_container';
+import TaskTimeline from './banner/task_timeline_component';
+import TrustSafetyBanner from './banner/trust_safety_component';
 import TaskDetailsForm from './details/task_details_main_component';
 import { Route } from 'react-router-dom';
 //components to make and import
@@ -31,6 +33,7 @@ class TaskForm extends React.Component{
         this.handleChange = this.handleChange.bind(this);
         this.handleSubformSubmit = this.handleSubformSubmit.bind(this);
         this.handleSubmit = this.handleSubformSubmit.bind(this);
+        // debugger;
     }
 
     handleChange(type, e){
@@ -62,6 +65,8 @@ class TaskForm extends React.Component{
         return (
             <div>
                 <GreetingContainer/>
+                <TaskTimeline/>
+                <TrustSafetyBanner/>
                 <Route exact path = '/task/new' render= {TaskDetails} />
             </div>
         )

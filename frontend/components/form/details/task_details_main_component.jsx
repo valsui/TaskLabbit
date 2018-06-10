@@ -14,6 +14,12 @@ class TaskDetailsForm extends React.Component{
     render(){
         return(
             <div className = 'task-details-form'>
+                <div className='details-title'>
+                    Describe Your Task
+                </div>
+                <div className = 'details-subtitle'>
+                    We need these inputs to show only qualified and available Taskers for the job. 
+                </div>
                 <TaskLocation location = {this.props.currentState.location} handleChange = {this.props.handleChange} handleSubmit = {this.props.handleSubmit}/>
                 <TaskDuration duration={this.props.currentState.duration} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit}/>
                 <TaskVehicle need_vehicle={this.props.currentState.need_vehicle} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} />

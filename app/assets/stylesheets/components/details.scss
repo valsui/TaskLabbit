@@ -1,5 +1,24 @@
 .task-details-form {
     height: 2000px;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+
+    .details-title, .details-subtitle{
+        // margin:auto;
+        text-align: center;
+        // padding: 5px;
+    }
+
+    .details-title{
+        margin-top: 10px;
+        font-size: 24px;
+    }
+
+    // .details-subtitle {
+    //     margin-top: 5px;
+    // }
+
 }
 
 .task-details-subform {
