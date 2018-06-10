@@ -8,7 +8,7 @@ class TaskSearch extends React.Component{
                 search: '',
                 foundTasks: ['Minor Home Repairs', 'Mounting & Installation', 'Furniture Assembly', 'Moving & Packing'] //default
             };
-        // this.displayList = this.displayList.bind(this);
+        
         this.chooseTask = this.chooseTask.bind(this);
     }
 
@@ -41,17 +41,10 @@ class TaskSearch extends React.Component{
         return (e) => this.setState({search: e.target.value.toLowerCase()})
     }
 
-    //handler on click displays the found tasks
-    displayList(e){
-        // if()
-        // const list = document.getElementsById('search-task-result');
-
-    }
-
     //handles the action to set global ui state , only should work when clicking on li
     chooseTask(e){
         const task = e.target.innerText;
-        debugger;
+        // debugger;
         if(task){
             this.setState({search: this.capitalize(task)});
             this.props.addTasktoUI(this.capitalize(task));

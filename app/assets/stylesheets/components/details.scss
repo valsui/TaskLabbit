@@ -1,0 +1,126 @@
+.task-details-form {
+    height: 2000px;
+}
+
+.task-details-subform {
+    position: relative;
+    margin-bottom: 30px;
+    background: white;
+    width: 30%;
+    min-width: 500px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding: 25px 25px 40px 25px;
+    padding: 25px;
+    margin: auto;
+    border: $border;
+    margin-top: 20px;
+}
+
+.task-details-subform:hover {
+    box-shadow: 1px 1px 6px 2px $border-grey;
+}
+
+
+.location-container, .task-location-text-form, .vehicle-container, .task-duration-container, .task-details-text-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-right: 20px;
+}
+
+.task-details-text-form{
+    textarea {
+        border: 1px solid #DCE0E6;
+        font-size: 12px;
+        width: 100%;
+        height: 100px;
+        margin: auto;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 10px;
+        padding: 10px 0 100px 0;
+    }
+
+    div {
+        padding: 5px;
+    }
+    
+}
+
+.task-location-text-form {
+
+    div {
+        font-size: 12px;
+    }
+    
+    input {
+        border: 1px solid #DCE0E6;
+        font-size: 12px;
+        width: 100%;
+        margin: auto;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 10px;
+        padding: 10px;
+    }
+
+    input:focus {
+        box-shadow: 1px 1px 1px 1px $border-grey;
+        border: $green;
+    }
+}
+
+.vehicle-container{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+
+    label{
+        font-size: 12px;
+        padding: 2px;
+        margin-left: 5px;
+        width: 100%;
+    }
+
+    .radio-buttons{
+        display:flex;
+        flex-direction: column;
+        align-content: space-between;
+        padding: 10px;
+        border-bottom: $border;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+}
+
+.task-duration-container {
+    
+    .task-duration-radio-buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px;
+        border-bottom: $border;
+        margin-bottom: 10px;
+
+        label{
+            margin-left: 10px;
+        }
+    }
+
+}
+
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+

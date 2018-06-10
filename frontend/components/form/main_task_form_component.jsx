@@ -1,4 +1,5 @@
 import React from 'react';
+import GreetingContainer from '../greeting/greeting_container';
 import TaskDetailsForm from './details/task_details_main_component';
 import { Route } from 'react-router-dom';
 //components to make and import
@@ -28,6 +29,8 @@ class TaskForm extends React.Component{
         }
         
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubformSubmit = this.handleSubformSubmit.bind(this);
+        this.handleSubmit = this.handleSubformSubmit.bind(this);
     }
 
     handleChange(type, e){
@@ -40,17 +43,27 @@ class TaskForm extends React.Component{
         //dispatch create Task;
     }
 
+    handleSubformSubmit(path, e) {
+        e.preventDefault();
+        this.props.history.push(path);
+    }
+
     render(){
         const TaskDetails = (props) => {
             return (
                 <TaskDetailsForm currentState={this.state} 
                                 handleChange={this.handleChange} 
-                                handleSubmit={this.handleSubmit} />
+                                handleSubmit={this.handleSubmit}
+                                handleSubformSubmit={this.handleSubformSubmit}
+                                {...props}/>
             ) 
         }     
        
         return (
-            <Route exact path = '/task/new' render= {TaskDetails} />
+            <div>
+                <GreetingContainer/>
+                <Route exact path = '/task/new' render= {TaskDetails} />
+            </div>
         )
     }
 }

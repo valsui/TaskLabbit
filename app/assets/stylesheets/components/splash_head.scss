@@ -73,25 +73,6 @@
     flex-wrap: wrap;
 }
 
-.task-button {
-    // display: inline-block;
-    float: left;
-    padding: 10px;
-    border: 1px solid $green;
-    border-radius: 5px;
-    font-size: 12px;
-    color: $green;
-    width: 150px;
-    text-align: center;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-.task-button:hover {
-    color: white;
-    background: $green;
-}
-
 .main-between-text {
     padding: 50px;
     font-size: 30px;

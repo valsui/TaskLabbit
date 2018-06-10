@@ -13,7 +13,7 @@ class MainBodyComponent extends React.Component{
                         <div>
                             Take a break, let a labbit take care of those littons
                         </div>
-                        <TaskButtonContainer taskName='General Handyman' buttonText='Book Handyman' addClass='bottom-button'/>
+                        <TaskButtonContainer taskName='Pet Sitting' buttonText='Book Pet Sitter' addClass='bottom-button'/>
                     </div>
                 </div>
                 <div className = 'splash-body-buttons-bottom'>

@@ -2,11 +2,13 @@ import React from 'react';
 
 const TaskLocation = (props) => {
     return (
-        <div className='task-location-text-container'>
+        <div className='task-details-subform'>
             <form className='task-location-text-form'>
-                <div> Fill Out location </div>
-                <input className='task-location-text-input' type="text" placeholder='Tell Us More' onChange = {(e) => props.handleChange('location', e)}/>
-                <button className='continue-button'>Continue</button>
+                <div> YOUR TASK LOCATION </div>
+                <input className='task-location-text-input' type="text" placeholder='Enter street address' onChange = {(e) => props.handleChange('location', e)}/>
+                <div className='button-container'>
+                    <button className='continue-button'>Continue</button>
+                </div>
             </form>
         </div>
     )
