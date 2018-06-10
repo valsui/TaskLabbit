@@ -45,6 +45,11 @@
         height: 10px;
         padding: 10px 0 100px 0;
     }
+    
+    .textarea:focus {
+        box-shadow: 1px 1px 1px 1px $border-grey;
+        border: $green;
+    }
 
     div {
         padding: 5px;
