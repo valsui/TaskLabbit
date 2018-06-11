@@ -5,5 +5,7 @@ import DashboardComponent from './dashboard_component';
 //going to need to fetch all tasks
 
 const mapStateToProps = (state, ownProps) => {
-    
+
 }
+
+export default connect(null,null)(DashboardComponent);

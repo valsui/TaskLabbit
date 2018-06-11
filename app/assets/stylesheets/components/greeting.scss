@@ -1,6 +1,7 @@
 
 .navBar {
     border-bottom: 1px solid $border-grey;
+    width: 100%;
 }
 
 .navBar-big {
@@ -42,22 +43,37 @@
     margin-left: 20px;
 }
 
-.header-name {
-    font-weight: 900;
-    color: $green;
-    font-size: 20px;
-    margin: 50px;
-}
 
 
 .header-login {
     display:flex;
     justify-content: space-evenly;
-    width: 1000px;
-    margin: auto;
+    width: 400px;
+    height: auto;
+    
+    img {
+        border-radius: 100%;
+        width: 15%;
+    }
+
+    .header-name {
+        color: $green;
+        padding-top: 15px;
+    }
+
+    button{
+        // margin-top: 0;
+        // padding-: 0;
+        border-radius: 5px;
+        border: 1px solid $green;
+        height: 20px;
+        width: 70px;
+        text-align: center;
+    }
+
 }
 
-.user-picture {
-    height: 100px;
-    width: 100px;
-}
+// .user-picture {
+//     height: 50px;
+//     width: 500px;
+// }

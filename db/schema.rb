@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_05_213607) do
+ActiveRecord::Schema.define(version: 2018_06_11_023115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "type"
+    t.date "date"
+    t.time "time"
+    t.string "location"
+    t.string "description"
+    t.string "duration"
+    t.boolean "need_vehicle"
+    t.integer "user_id"
+    t.integer "tasker_id"
+    t.boolean "completed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tasker_id"], name: "index_tasks_on_tasker_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
@@ -24,6 +41,15 @@ ActiveRecord::Schema.define(version: 2018_06_05_213607) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "zipcode", null: false
+    t.boolean "is_tasker", default: false, null: false
+    t.string "task_type"
+    t.boolean "has_vehicle", default: false
+    t.integer "num_completed_tasks"
+    t.integer "num_reviews", default: 0
+    t.integer "rating", default: 100
+    t.float "price_per_hour"
+    t.string "user_description"
+    t.string "image_url", default: "http://blog.janm.org/wp-content/uploads/2011/07/322651.jpg"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end

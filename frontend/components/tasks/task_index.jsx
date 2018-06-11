@@ -10,7 +10,7 @@ class TaskIndex extends React.Component {
     render(){
         return (
             <div className='task-index-splash'>
-                <GreetingContainer/>
+                {/* <GreetingContainer/> */}
                 <ul></ul>
             </div>
         )

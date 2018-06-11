@@ -64,11 +64,11 @@ class TaskTimeline extends React.Component {
                         <span>1. Fill Out Task Details</span>
                     </div>
                     <div className={this.addBoldClass('second')}>
-                        <i class="fas fa-users"></i>
+                        <i className="fas fa-users"></i>
                         <span>2. View Taskers & Prices</span>
                     </div>
                         <div className={this.addBoldClass('third')}>
-                        <i class="fas fa-hands-helping"></i>
+                        <i className="fas fa-hands-helping"></i>
                         <span>3. Confirm & Book</span>
                     </div>
                 </div>

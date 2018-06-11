@@ -74,7 +74,7 @@ let initialState = tasksArr.reduce((acc, el, i) => {
     return acc
 }, {});
 
-const taskReducer = (state = initialState, action) => {
+const taskTypeReducer = (state = initialState, action) => {
     Object.freeze(state);
     switch (action.type) {
         default:
@@ -82,4 +82,4 @@ const taskReducer = (state = initialState, action) => {
     }
 };
 
-export default taskReducer;
+export default taskTypeReducer;

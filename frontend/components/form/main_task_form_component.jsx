@@ -25,7 +25,7 @@ class TaskForm extends React.Component{
             location: '',
             duration: '',
             details: '',
-            tasker: null,
+            tasker_id: null,
             time: "I'm flexible",
             date: ''
         }

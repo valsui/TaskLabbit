@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 
-user1 = User.create(first_name: 'Kelly', last_name: 'Clarkson', email: 'flipflop@email.com', password:'edmunchkin', zipcode: 12345)
+user1 = User.create(first_name: 'Kelly', last_name: 'Clarkson', email: 'flipflop@email.com', password:'edmunchkin', zipcode: 12345, is_tasker: true)
 
-user2 = User.create(first_name: 'Come', last_name: 'HALP', email: 'halpme@email.com', password:'password',zipcode: 12345)
+user2 = User.create(first_name: 'Come', last_name: 'HALP', email: 'halpme@email.com', password:'password', zipcode: 12345)
 
 
