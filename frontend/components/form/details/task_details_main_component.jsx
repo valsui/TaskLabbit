@@ -20,10 +20,10 @@ class TaskDetailsForm extends React.Component{
                 <div className = 'details-subtitle'>
                     We need these inputs to show only qualified and available Taskers for the job. 
                 </div>
-                <TaskLocation location = {this.props.currentState.location} handleChange = {this.props.handleChange} handleSubmit = {this.props.handleSubmit}/>
-                <TaskDuration duration={this.props.currentState.duration} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit}/>
-                <TaskVehicle need_vehicle={this.props.currentState.need_vehicle} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} />
-                <TaskDetailsText details={this.props.currentState.details} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} handleSubformSubmit={this.props.handleSubformSubmit}
+                <TaskLocation location = {this.props.currentState.task.location} handleChange = {this.props.handleChange} handleSubmit = {this.props.handleSubmit}/>
+                <TaskDuration duration={this.props.currentState.task.duration} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit}/>
+                <TaskVehicle need_vehicle={this.props.currentState.task.need_vehicle} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} />
+                <TaskDetailsText details={this.props.currentState.task.details} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} handleSubformSubmit={this.props.handleSubformSubmit}
                 />
             </div >
         )

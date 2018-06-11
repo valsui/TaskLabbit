@@ -26,7 +26,6 @@ export const recieveTask = (task) => {
     }
 }
 
-
 export const receiveTasks = (tasks) => {
     return {
         type: RECIEVE_TASKS,
@@ -34,10 +33,12 @@ export const receiveTasks = (tasks) => {
     }
 }
 
-export const removeTask = (tasksId) => ({
-    type: REMOVE_TASK,
-    taskId
-})
+export const removeTask = (tasksId) => {
+    return {
+        type: REMOVE_TASK,
+        taskId
+    }
+}
 
 export const fetchTask = (tasksId) => (dispatch) => (
     APITaskUtil.fetchTask(tasksId).then((tasks) => dispatch(receiveTask(tasks)))

@@ -19,15 +19,18 @@ class TaskForm extends React.Component{
 
         const currentUser = this.props.currentUser;
         this.state = {
-            user_id: currentUser ? currentUser.id : null,
-            type: this.props.task,
-            need_vehicle: false,
-            location: '',
-            duration: '',
-            details: '',
-            tasker_id: null,
-            time: "I'm flexible",
-            date: ''
+            task: {
+                user_id: currentUser ? currentUser.id : null,
+                type: this.props.taskType,
+                need_vehicle: false,
+                location: '',
+                duration: '',
+                details: '',
+                tasker_id: null,
+                time: "I'm flexible",
+                date: ''
+            },
+            taskId: null
         }
         
         this.handleChange = this.handleChange.bind(this);
@@ -36,8 +39,13 @@ class TaskForm extends React.Component{
         // debugger;
     }
 
+    componentWillReceiveProps(newProps){
+        // fetch task - how to get id???
+    }
+
     handleChange(type, e){
-         this.setState({[type]: e.currentTarget.value});
+         this.setState({task: {[type]: e.currentTarget.value}});
+         // need to update the state but how?
          console.log(this, type, e, this.state);
     }
 
@@ -48,6 +56,11 @@ class TaskForm extends React.Component{
 
     handleSubformSubmit(path, e) {
         e.preventDefault();
+        if(path.includes('/new')){
+            this.props.createTask(this.state)
+        }else{
+            this.props.updateTask()
+        }
         this.props.history.push(path);
     }
 
