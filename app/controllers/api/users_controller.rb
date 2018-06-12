@@ -1,6 +1,8 @@
 class Api::UsersController < ApplicationController
   def index
-    @users = User.all
+    # debugger;
+    @users = User.all.where(is_tasker: true).where(task_type: user_params[:task_type]);
+    # debugger;
     #eventually may wwant to query for location or task type
     #@users = User.all.where(task_type: current_task.id.type) => need to get current task posted to global state
     render :index
@@ -8,6 +10,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    debugger;
     render :show
   end
 

@@ -31,9 +31,9 @@ class TaskForm extends React.Component{
                 description: '',
                 tasker_id: null,
                 time: "I'm flexible",
-                date: ''
+                date: '',
             },
-            taskId: null,
+            // taskId: this.props.tasks.task.id,
             errors: {
                 // need_vehicle: 'Field Cannot be blank',
                 // location: 'Please enter valid address',
@@ -49,7 +49,8 @@ class TaskForm extends React.Component{
                 time: " ",
                 date: " ",
                 tasker_id: " "
-            }
+            },
+            // currentTask: this.props.tasks.task
         }
         
         this.handleChange = this.handleChange.bind(this);
@@ -71,8 +72,6 @@ class TaskForm extends React.Component{
         let newState = merge({}, this.state)
         newState.task[type] = e.currentTarget.value;
         this.setState(newState);
-
-         // need to update the state but how?
         // console.log(this.props, type, e, this.state);
     }
 
@@ -88,10 +87,19 @@ class TaskForm extends React.Component{
         if(this.props.location.pathname.includes('/new')){
             if(!error['location'] && !error['duration'] && !error['description'] && !error['need_vehicle']){
                 // debugger;
-                this.props.createTask(this.state.task).then(() => this.props.history.push(path));
+                //handle vehicle 
+                if (this.state.task.need_vehicle === 'Not needed for task'){
+                    let newState = merge({}, this.state)
+                    newState.task.need_vehicle = false;
+                    this.setState(newState, () => this.props.createTask(this.state.task).then(() => this.props.history.push(path)));
+                }else{
+                    this.props.createTask(this.state.task).then(() => this.props.history.push(path));
+                }
             }
         }else{
-            // this.props.updateTask()
+            if(!error[time] && !error[date] && !error[tasker_id]){
+                // this.props.updateTask()
+            }
         }
     }
 
@@ -163,6 +171,7 @@ class TaskForm extends React.Component{
                     {this.renderErrors()}
                 </div>
                 <Route exact path = '/task/new' render= {TaskDetails} />
+                {/* <Route exact path = '/task/price' render {nfjknvda} />  */}
             </div>
         )
     }

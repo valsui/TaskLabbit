@@ -25,8 +25,9 @@ const mapStateToProps = (state, ownProps) => {
     return {
         taskType: state.ui.task,
         currentUser: state.session.currentUser,
-        task: state.entities.tasks,
-        errors: state.errors.formErrors
+        task: state.entities.tasks.task,
+        errors: state.errors.formErrors,
+        // taskers: 
     }
 }
 

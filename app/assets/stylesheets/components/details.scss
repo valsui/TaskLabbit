@@ -9,6 +9,7 @@
 
 .task-details-form {
     height: 2000px;
+    background: #F9FAFB;
     .details-title, .details-subtitle{
         // margin:auto;
         text-align: center;
@@ -16,8 +17,9 @@
     }
 
     .details-title{
-        margin-top: 10px;
+        // margin-top: 10px;
         font-size: 24px;
+        padding: 15px;
     }
 
 }
@@ -50,7 +52,7 @@
 
 div.completed {
     border: 1px solid $green;
-    box-shadow: 1px 1px 2px 1px $green;
+    box-shadow: .1px .1px 5px 1px $green;
 }
 
 i.completed::before {
@@ -86,6 +88,10 @@ i.completed::after {
         font-size: 14px;
         font-weight: bold;
     }
+
+    // &:hover {
+    //     color: blue;
+    // }
 }
 
 .task-details-text-form{
