@@ -33,7 +33,7 @@ user2 = User.create(first_name: 'Kelly', last_name: 'Clarkson', email: 'flipflop
 
 # user3 = User.create(first_name: 'Ginger', last_name: 'Baker', email: 'lb1@email.com', password:'password', zipcode: 12345, is_tasker: false)
 
-user4 = User.create(first_name: 'Ginger', 
+user3 = User.create(first_name: 'Ginger', 
                     last_name: 'Labbit', 
                     email: 'og_lb@email.com', 
                     password:'password', 
@@ -240,7 +240,7 @@ task1 = Task.create(task_type: 'Web Design & Development',
              duration: 'Medium - Est. 2-3 hrs',
              need_vehicle: false,
              user_id: user1.id,
-             tasker_id: user4.id,
+             tasker_id: user3.id,
              completed: true)
 task2 = Task.create(task_type: 'Cleaning',
              date: Faker::Date.between(100.days.ago, Date.today),
@@ -248,7 +248,7 @@ task2 = Task.create(task_type: 'Cleaning',
              location: '825 Battery Street, San Francisco, CA, 12345',
              duration: 'Medium - Est. 2-3 hrs',
              need_vehicle: false,
-             user_id: user2.id,
+             user_id: user1.id,
              tasker_id: user4.id,
              completed: true)
 

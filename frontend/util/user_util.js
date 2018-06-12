@@ -6,7 +6,7 @@ export const fetchUser = (userId) => {
     })
 }
 
-//fetchUsers
+//fetchTasker based on task type
 export const fetchTaskers = (taskType) => {
     return $.ajax({
         method: 'GET',

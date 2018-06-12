@@ -3,7 +3,7 @@ import * as APITaskUtil from '../util/task_util';
 export const RECEIVE_FORM_ERROR = 'RECEIVE_FORM_ERROR';
 export const REMOVE_FORM_ERROR = 'REMOVE_FORM_ERROR';
 export const RECEIVE_TASK = 'RECIEVE_TASK';
-export const RECIEVE_TASKS = 'RECEIVE_TASKS';
+export const RECEIVE_TASKS = 'RECEIVE_TASKS';
 export const REMOVE_TASK = 'REMOVE_TASK';
 
 export const receiveFormError = (error) => {
@@ -19,17 +19,17 @@ export const removeFormError = () => {
     }
 }
 
-export const receiveTask = (task) => {
+export const receiveTask = (payload) => {
     return {
         type: RECEIVE_TASK,
-        task: task
+        payload
     }
 }
 
-export const receiveTasks = (tasks) => {
+export const receiveTasks = (payload) => {
     return {
-        type: RECIEVE_TASKS,
-        tasks: tasks
+        type: RECEIVE_TASKS,
+        payload
     }
 }
 
@@ -60,6 +60,6 @@ export const deleteTask = (taskId) => (dispatch) => (
     APITaskUtil.deleteTask(taskId).then((task) => dispatch(removeTask(task.id)))
 )
 
-export const fetchTasks = () => (dispatch) => (
-    APITaskUtil.fetchTasks().then((tasks) => dispatch(receiveTasks(tasks)))
+export const fetchTasks = (userId) => (dispatch) => (
+    APITaskUtil.fetchTasks(userId).then((payload) => dispatch(receiveTasks(payload)))
 )

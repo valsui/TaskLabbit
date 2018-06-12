@@ -33,10 +33,11 @@ export const fetchTask = (taskId) => {
     })
 }
 
-//retrieve tasks
-export const fetchTasks = () => {
+//retrieve tasks - this renders the index of the current user's created tasks
+export const fetchTasks = (userId) => {
     return $.ajax({
         method: 'GET',
-        url: '/api/tasks'
+        url: '/api/tasks',
+        data: {task: {user_id: userId}}
     })
 }

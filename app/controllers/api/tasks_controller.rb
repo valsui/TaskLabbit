@@ -1,6 +1,6 @@
 class Api::TasksController < ApplicationController
     def index
-        @tasks = Task.all
+        @tasks = Task.all.where(user_id: task_params[:user_id])
         render :index
     end
 
@@ -10,7 +10,6 @@ class Api::TasksController < ApplicationController
     end
 
     def create
-        # debugger;
         @task = Task.new(task_params)
         if @task.save
             render :show
