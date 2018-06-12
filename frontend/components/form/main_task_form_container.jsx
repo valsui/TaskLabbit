@@ -22,10 +22,11 @@ import { createTask, fetchTask, updateTask, fetchTasks, removeFormError } from '
 
 
 const mapStateToProps = (state, ownProps) => {
+    // debugger;
     return {
         taskType: state.ui.task,
         currentUser: state.session.currentUser,
-        task: state.entities.tasks.task,
+        currentTask: Object.values(state.entities.tasks)[0] || {},
         errors: state.errors.formErrors,
         // taskers: 
     }
@@ -36,7 +37,7 @@ const mapDispatchToProps = (dispatch) => {
         createTask: (task) => dispatch(createTask(task)),
         fetchTask: (taskId) => dispatch(fetchTask(taskId)),
         updateTask: (task) => dispatch(updateTask(task)),
-        fetchTasks: () => dispatch(fetchTasks()),
+        fetchTasks: (currentUserId) => dispatch(fetchTasks(currentUserId)),
         removeFormError: () => dispatch(removeFormError())
     }
 }

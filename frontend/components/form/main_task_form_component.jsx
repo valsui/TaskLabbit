@@ -3,6 +3,7 @@ import GreetingContainer from '../greeting/greeting_container';
 import TaskTimeline from './banner/task_timeline_component';
 import TrustSafetyBanner from './banner/trust_safety_component';
 import TaskDetailsForm from './details/task_details_main_component';
+import PickTaskerForm from './pick_tasker/main_choose_tasker_component';
 import { Route } from 'react-router-dom';
 import merge from 'lodash/merge';
 import parser from 'parse-address';
@@ -24,24 +25,18 @@ class TaskForm extends React.Component{
         this.state = {
             task: {
                 user_id: currentUser ? currentUser.id : null,
-                task_type: this.props.taskType,
-                need_vehicle: false,
-                location: '',
-                duration: '',
-                description: '',
+                // task_type: this.props.taskType,
+                task_type: sessionStorage.getItem('taskType'),
+                need_vehicle: this.props.currentTask.need_vehicle || false,
+                location: this.props.currentTask.location || '',
+                duration: this.props.currentTask.duration || '',
+                description: this.props.currentTask.description || '',
                 tasker_id: null,
-                time: "I'm flexible",
-                date: '',
+                time: this.props.currentTask.time || "I'm flexible",
+                date: this.props.currentTask.date || '',
+                id: this.props.currentTask.id
             },
-            // taskId: this.props.tasks.task.id,
             errors: {
-                // need_vehicle: 'Field Cannot be blank',
-                // location: 'Please enter valid address',
-                // duration: 'Field Cannot be blank',
-                // description: 'Field Cannot be blank',
-                // time: false,
-                // date: 'Field Cannot be blank',
-                // tasker_id: 'Field Cannot be blank'
                 need_vehicle: " ",
                 location: " ",
                 duration: " ",
@@ -50,7 +45,6 @@ class TaskForm extends React.Component{
                 date: " ",
                 tasker_id: " "
             },
-            // currentTask: this.props.tasks.task
         }
         
         this.handleChange = this.handleChange.bind(this);
@@ -58,6 +52,7 @@ class TaskForm extends React.Component{
         this.handleSubmit = this.handleSubformSubmit.bind(this);
         this.handleErrorSubmit = this.handleErrorSubmit.bind(this);
         this.renderSubError = this.renderSubError.bind(this);
+        // debugger;
     }
 
     componentDidMount(){
@@ -65,7 +60,13 @@ class TaskForm extends React.Component{
     }
 
     componentWillReceiveProps(newProps){
-        // fetch task - how to get id???
+        // debugger;
+        if(this.props.currentTask){
+            let newState = merge({}, this.state)
+            newState.task.id = this.props.currentTask.id;
+            this.setState(newState);
+        }
+        // debugger;
     }
 
     handleChange(type, e){
@@ -78,10 +79,14 @@ class TaskForm extends React.Component{
     handleSubmit(e){
         e.preventDefault;
         //dispatch update Task;
+        if(this.props.currentUser){
+            this.props.updateTask(this.state.task).then(() => this.props.history.push('/dashboard'));
+        }else{
+            this.props.history.push('/login')
+        }
     }
 
     handleSubformSubmit(path, e) {
-        // e.preventDefault();
         e.stopPropagation();
         const error = this.state.errors;
         if(this.props.location.pathname.includes('/new')){
@@ -96,9 +101,9 @@ class TaskForm extends React.Component{
                     this.props.createTask(this.state.task).then(() => this.props.history.push(path));
                 }
             }
-        }else{
+        }else if(this.props.location.pathname.includes('/price')){
             if(!error[time] && !error[date] && !error[tasker_id]){
-                // this.props.updateTask()
+                this.props.updateTask(this.state.task).then(() => this.props.history.push(path));
             }
         }
     }
@@ -153,14 +158,23 @@ class TaskForm extends React.Component{
             return (
                 <TaskDetailsForm currentState={this.state} 
                                 handleChange={this.handleChange} 
-                                handleSubmit={this.handleSubmit}
-                                // handleSubformSubmit={this.handleSubformSubmit}
                                 removeFormErrors = {this.props.removeFormError}
                                 handleErrorSubmit = {this.handleErrorSubmit}
                                 renderSubError = {this.renderSubError}
                                 {...props}/>
             ) 
-        }     
+        }  
+        
+        const PickTasker = (props) => {
+            return (
+                <PickTaskerForm currentState={this.state}
+                                handleChange={this.handleChange}
+                                removeFormErrors={this.props.removeFormError}
+                                handleErrorSubmit={this.handleErrorSubmit}
+                                renderSubError={this.renderSubError}
+                                {...props}/>
+            )
+        }
        
         return (
             <div>
@@ -170,8 +184,8 @@ class TaskForm extends React.Component{
                 <div className = 'task-type-error'>
                     {this.renderErrors()}
                 </div>
-                <Route exact path = '/task/new' render= {TaskDetails} />
-                {/* <Route exact path = '/task/price' render {nfjknvda} />  */}
+                <Route exact path = '/task/new' render = {TaskDetails} />
+                <Route exact path = '/task/price' render = {PickTasker} />
             </div>
         )
     }
