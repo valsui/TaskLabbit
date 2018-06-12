@@ -25,8 +25,7 @@ class TaskForm extends React.Component{
         this.state = {
             task: {
                 user_id: currentUser ? currentUser.id : null,
-                // task_type: this.props.taskType,
-                task_type: sessionStorage.getItem('taskType'),
+                task_type: window.sessionStorage.getItem('taskType'),
                 need_vehicle: this.props.currentTask.need_vehicle || false,
                 location: this.props.currentTask.location || '',
                 duration: this.props.currentTask.duration || '',
@@ -52,7 +51,6 @@ class TaskForm extends React.Component{
         this.handleSubmit = this.handleSubformSubmit.bind(this);
         this.handleErrorSubmit = this.handleErrorSubmit.bind(this);
         this.renderSubError = this.renderSubError.bind(this);
-        // debugger;
     }
 
     componentDidMount(){
@@ -60,13 +58,11 @@ class TaskForm extends React.Component{
     }
 
     componentWillReceiveProps(newProps){
-        // debugger;
         if(this.props.currentTask){
             let newState = merge({}, this.state)
             newState.task.id = this.props.currentTask.id;
             this.setState(newState);
         }
-        // debugger;
     }
 
     handleChange(type, e){
@@ -91,7 +87,6 @@ class TaskForm extends React.Component{
         const error = this.state.errors;
         if(this.props.location.pathname.includes('/new')){
             if(!error['location'] && !error['duration'] && !error['description'] && !error['need_vehicle']){
-                // debugger;
                 //handle vehicle 
                 if (this.state.task.need_vehicle === 'Not needed for task'){
                     let newState = merge({}, this.state)
@@ -175,6 +170,8 @@ class TaskForm extends React.Component{
                                 {...props}/>
             )
         }
+
+        // confirm task 
        
         return (
             <div>
