@@ -73,7 +73,7 @@ class TaskForm extends React.Component{
         this.setState(newState);
 
          // need to update the state but how?
-        console.log(this.props, type, e, this.state);
+        // console.log(this.props, type, e, this.state);
     }
 
     handleSubmit(e){
