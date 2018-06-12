@@ -1,4 +1,4 @@
-class Api::UsersController < ApplicationController
+class Api::TasksController < ApplicationController
     def index
         @tasks = Task.all
         render :index
@@ -10,20 +10,22 @@ class Api::UsersController < ApplicationController
     end
 
     def create
+        # debugger;
         @task = Task.new(task_params)
         if @task.save
             render :show
         else
-            render json: @task.errors.full_messages, status: 422
+            # render json: @task.errors.full_messages, status: 422
+            render json: ['Task type cannot be empty, please choose task'], status: 422
         end
     end
 
     def update
         @task = Task.find(params[:id])
         if @task && @task.update
-            render: show
+            render :show
         else
-            render json: ['Unable to update task #{params[:id]}'], status 418
+            render json: ["Unable to update task #{params[:id]}"], status: 418
         end
     end
 
@@ -35,6 +37,6 @@ class Api::UsersController < ApplicationController
 
     private 
     def task_params
-        params.require(:tasks).permit(:type, :need_vehicle, :location, :duration, :details, :tasker_id, :user_id, :duration, :details, :time, :date)
+        params.require(:task).permit(:task_type, :need_vehicle, :location, :duration, :description, :tasker_id, :user_id, :time, :date)
     end
 end

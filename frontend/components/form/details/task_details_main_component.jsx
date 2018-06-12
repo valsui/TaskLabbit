@@ -11,6 +11,12 @@ class TaskDetailsForm extends React.Component{
         // debugger;
     }
 
+    componentDidMount(){
+        if(this.props.currentState.task.task_type){
+            this.props.removeFormErrors();
+        }
+    }
+
     render(){
         return(
             <div className = 'task-details-form'>
@@ -20,10 +26,30 @@ class TaskDetailsForm extends React.Component{
                 <div className = 'details-subtitle'>
                     We need these inputs to show only qualified and available Taskers for the job. 
                 </div>
-                <TaskLocation location = {this.props.currentState.task.location} handleChange = {this.props.handleChange} handleSubmit = {this.props.handleSubmit}/>
-                <TaskDuration duration={this.props.currentState.task.duration} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit}/>
-                <TaskVehicle need_vehicle={this.props.currentState.task.need_vehicle} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} />
-                <TaskDetailsText details={this.props.currentState.task.details} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} handleSubformSubmit={this.props.handleSubformSubmit}
+                <TaskLocation location = {this.props.currentState.task.location}
+                errors = {this.props.currentState.errors.location} 
+                handleChange = {this.props.handleChange} 
+                handleSubmit = {this.props.handleSubmit} 
+                handleErrorSubmit = {this.props.handleErrorSubmit}
+                renderSubError = {this.props.renderSubError}/>
+                <TaskDuration duration={this.props.currentState.task.duration} 
+                errors = {this.props.currentState.errors.duration}
+                handleChange={this.props.handleChange} 
+                handleSubmit={this.props.handleSubmit} 
+                handleErrorSubmit = {this.props.handleErrorSubmit}
+                renderSubError = {this.props.renderSubError}/>
+                <TaskVehicle need_vehicle={this.props.currentState.task.need_vehicle} 
+                errors = {this.props.currentState.errors.need_vehicle}
+                handleChange={this.props.handleChange} 
+                handleSubmit={this.props.handleSubmit} 
+                handleErrorSubmit = {this.props.handleErrorSubmit}
+                renderSubError = {this.props.renderSubError} />
+                <TaskDetailsText details={this.props.currentState.task.description} 
+                errors = {this.props.currentState.errors.description}
+                handleChange={this.props.handleChange} 
+                handleSubmit={this.props.handleSubmit} 
+                handleErrorSubmit = {this.props.handleErrorSubmit}
+                renderSubError = {this.props.renderSubError}
                 />
             </div >
         )

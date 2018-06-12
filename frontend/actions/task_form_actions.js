@@ -19,7 +19,7 @@ export const removeFormError = () => {
     }
 }
 
-export const recieveTask = (task) => {
+export const receiveTask = (task) => {
     return {
         type: RECEIVE_TASK,
         task: task
@@ -40,16 +40,20 @@ export const removeTask = (tasksId) => {
     }
 }
 
-export const fetchTask = (tasksId) => (dispatch) => (
-    APITaskUtil.fetchTask(tasksId).then((tasks) => dispatch(receiveTask(tasks)))
-)
+export const fetchTask = (tasksId) => (dispatch) => {
+    // debugger;
+    return APITaskUtil.fetchTask(tasksId).then((task) => dispatch(receiveTask(task)), (err) =>
+    dispatch(receiveFormError(err.responseJSON)))
+}
 
-export const createTask = (task) => (dispatch) => (
-    APITaskUtil.createTask(task).then((task) => dispatch(receiveTask(task)))
-)
+export const createTask = (task) => (dispatch) => {
+    return APITaskUtil.createTask(task).then((task) => dispatch(receiveTask(task)), (err) =>
+       dispatch(receiveFormError(err.responseJSON)))
+}
 
 export const updateTask = (task) => (dispatch) => (
-    APITaskUtil.updateTask(task).then((task) => dispatch(receiveTask(task)))
+    APITaskUtil.updateTask(task).then((task) => dispatch(receiveTask(task)), (err) =>
+        dispatch(receiveFormError(err.responseJSON)))
 )
 
 export const deleteTask = (taskId) => (dispatch) => (

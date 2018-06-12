@@ -2,10 +2,18 @@ import React from 'react';
 
 const TaskDuration = (props) => {
     // debugger;
+    let completed = 'non-completed';
+    if (!props.errors) {
+        completed = 'completed';
+    }
     return (
-        <div className='task-details-subform'>
+        <div className={`task-details-subform ${completed}`}>
             <div className = 'task-duration-container'>
-                <strong> How big is your task? </strong>
+                <div className='sub-form-title'>
+                    <strong> HOW BIG IS YOUR TASK? </strong>
+                    {props.renderSubError('duration')}
+                    <i className={`far fa-check-circle ${completed}`}></i>
+                </div>
                 <div className = 'task-duration-radio-buttons'>
                     <div className = 'duration-radio-container-1'>
                         <input type="radio" 
@@ -33,7 +41,11 @@ const TaskDuration = (props) => {
                     </div>
                 </div>
                 <div className='button-container'>
-                    <button className='continue-button' type="submit">Continue</button>
+                    <button className='continue-button' 
+                            type="submit"
+                        onClick={(e) => props.handleErrorSubmit('duration', '', e)}>
+                            Continue
+                            </button>
                 </div>
             </div>
         </div>

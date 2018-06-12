@@ -18,6 +18,7 @@
 #
 
 class Task < ApplicationRecord
+    validates :task_type, presence:true
     #no validations needed since tasks are going to be posted after each subform
     belongs_to :users,
         primary_key: :id,
@@ -25,7 +26,7 @@ class Task < ApplicationRecord
         class_name: :User,
         optional: true
 
-    belongs_to :taskers
+    belongs_to :taskers,
         primary_key: :id,
         foreign_key: :tasker_id,
         class_name: :User,

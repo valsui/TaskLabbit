@@ -1,11 +1,18 @@
 import React from 'react';
 
 const TaskVehicle = (props) => {
-    // console.log(props);
+    let completed = 'non-completed';
+    if(!props.errors){
+        completed = 'completed';
+    }
     return (
-        <div className='task-details-subform'>
+        <div className = {`task-details-subform ${completed}`}>
                 <div className='vehicle-container'>
-                    <strong> Vehicle Requirements </strong>
+                    <div className = 'sub-form-title'>
+                        <strong> VEHICLE REQUIREMENTS </strong>
+                        {props.renderSubError('need_vehicle')}
+                        <i className={`far fa-check-circle ${completed}`}></i>
+                    </div>   
                     <div className='radio-buttons'>
                         <div className='vehicle-radio-container-1'>
                             <input type="radio" 
@@ -33,7 +40,10 @@ const TaskVehicle = (props) => {
                         </div>
                     </div>
                         <div className= 'button-container'>
-                            <button className= 'continue-button' type="submit">Continue</button>
+                            <button className= 'continue-button' 
+                                    type="submit"
+                        onClick={(e) => props.handleErrorSubmit('need_vehicle', '', e)}>
+                                    Continue</button>
                         </div>
                 </div>
             </div>

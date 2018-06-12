@@ -2,16 +2,17 @@ import { RECEIVE_TASK, RECEIVE_TASKS, REMOVE_TASK } from '../actions/task_form_a
 import merge from 'lodash/merge'
 
 const taskReducer = (state = {}, action) => {   
+    // debugger;
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_TASKS:
             return merge({}, state, action.tasks);
         case RECEIVE_TASK:
-            return merge({}, state, {[action.task.id]: action.task});
+            return merge({}, state, action.task);
         case REMOVE_TASK:
             const newState = merge({}, state);
-            delete newState[action.type.id];
-            return newState
+            delete newState[action.task.id];
+            return newState;
         default:
             return state
     }
