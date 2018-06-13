@@ -4,6 +4,7 @@ import TaskTimeline from './banner/task_timeline_component';
 import TrustSafetyBanner from './banner/trust_safety_component';
 import TaskDetailsForm from './details/task_details_main_component';
 import PickTaskerForm from './pick_tasker/main_choose_tasker_component';
+import ConfirmTaskForm from './confirm_task/confirm_task_component';
 import { Route } from 'react-router-dom';
 import merge from 'lodash/merge';
 import parser from 'parse-address';
@@ -33,7 +34,7 @@ class TaskForm extends React.Component{
                 tasker_id: null,
                 time: this.props.currentTask.time || "I'm flexible",
                 date: this.props.currentTask.date || '',
-                id: this.props.currentTask.id
+                // id: this.props.currentTask.id
             },
             errors: {
                 need_vehicle: " ",
@@ -65,25 +66,42 @@ class TaskForm extends React.Component{
         }
     }
 
-    handleChange(type, e){
+    handleChange(type, ...args){
+        let event;
+        let path;
+        // debugger
+        if (args.length === 2) {
+            path = args[0];
+            event = args[1];
+        } else {
+            event = args[0];
+        }
         let newState = merge({}, this.state)
-        newState.task[type] = e.currentTarget.value;
-        this.setState(newState);
+        if(event.type){
+            newState.task[type] = event.currentTarget.value;
+        }else{
+            newState.task[type] = event;
+        }
+        if(path){
+            this.setState(newState, () => this.handleErrorSubmit(type, path, event));
+        }else{
+            this.setState(newState, () => this.handleErrorSubmit(type, event));
+        }
         // console.log(this.props, type, e, this.state);
     }
 
     handleSubmit(e){
-        e.preventDefault;
+        // e.preventDefault;
         //dispatch update Task;
         if(this.props.currentUser){
             this.props.updateTask(this.state.task).then(() => this.props.history.push('/dashboard'));
         }else{
-            this.props.history.push('/login')
+            this.props.history.push('/login');
         }
     }
 
     handleSubformSubmit(path, e) {
-        e.stopPropagation();
+        // e.preventDefault();
         const error = this.state.errors;
         if(this.props.location.pathname.includes('/new')){
             if(!error['location'] && !error['duration'] && !error['description'] && !error['need_vehicle']){
@@ -97,15 +115,24 @@ class TaskForm extends React.Component{
                 }
             }
         }else if(this.props.location.pathname.includes('/price')){
-            if(!error[time] && !error[date] && !error[tasker_id]){
+            if(!error['time'] && !error['date'] && !error['tasker_id']){
                 this.props.updateTask(this.state.task).then(() => this.props.history.push(path));
             }
         }
     }
 
-    handleErrorSubmit(type, path, e){
-        e.preventDefault();
-        e.stopPropagation();
+    handleErrorSubmit(type, ...args){
+        let event;
+        let path;
+        if(args.length === 2){
+            path = args[0];
+            event = args[1];
+        }else{
+            event = args[0];
+        }
+        if(event.type){
+            event.preventDefault();
+        }
         let newState = merge({}, this.state)
         if(type === 'location'){
             const address = parser.parseAddress(this.state.task.location);
@@ -116,6 +143,7 @@ class TaskForm extends React.Component{
                 newState.errors[type] = 'Please enter valid address';
             }
         }else{
+            // debugger;
             if (this.state.task[type]){
                 newState.errors[type] = false;
             }else{
@@ -123,7 +151,11 @@ class TaskForm extends React.Component{
             }
         }
         // debugger;
-        this.setState(newState, () => this.handleSubformSubmit(path,e));
+        if(path){
+            this.setState(newState, () => this.handleSubformSubmit(path,event));
+        }else {
+            this.setState(newState);
+        }
     }
 
     renderErrors() {
@@ -167,12 +199,25 @@ class TaskForm extends React.Component{
                                 removeFormErrors={this.props.removeFormError}
                                 handleErrorSubmit={this.handleErrorSubmit}
                                 renderSubError={this.renderSubError}
+                                taskers = {this.props.taskers}
+                                fetchTaskers = {this.props.fetchTaskers}
                                 {...props}/>
             )
         }
 
         // confirm task 
+        const ConfirmTask = (props) => {
+            return (
+                <ConfirmTaskForm currentState={this.state}
+                    handleChange={this.handleChange}
+                    removeFormErrors={this.props.removeFormError}
+                    handleSubmit={this.handleSubmit}
+                    renderSubError={this.renderSubError}
+                    {...props} />
+            )
+        }
        
+        // debugger;
         return (
             <div>
                 <GreetingContainer/>
@@ -183,6 +228,7 @@ class TaskForm extends React.Component{
                 </div>
                 <Route exact path = '/task/new' render = {TaskDetails} />
                 <Route exact path = '/task/price' render = {PickTasker} />
+                <Route exact path = '/task/confirm' render = {ConfirmTask} />
             </div>
         )
     }

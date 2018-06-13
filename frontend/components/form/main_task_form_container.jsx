@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import TaskForm from './main_task_form_component';
 import { createTask, fetchTask, updateTask, fetchTasks, removeFormError } from '../../actions/task_form_actions';
+import { fetchTaskers } from '../../actions/user_actions';
 
 //need to write action to create post form the entire form 
 //this from will contain the following components:
@@ -28,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: state.session.currentUser,
         currentTask: Object.values(state.entities.tasks)[0] || {},
         errors: state.errors.formErrors,
-        // taskers: 
+        taskers: Object.values(state.entities.users)
     }
 }
 
@@ -38,7 +39,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchTask: (taskId) => dispatch(fetchTask(taskId)),
         updateTask: (task) => dispatch(updateTask(task)),
         fetchTasks: (currentUserId) => dispatch(fetchTasks(currentUserId)),
-        removeFormError: () => dispatch(removeFormError())
+        removeFormError: () => dispatch(removeFormError()),
+        fetchTaskers: (taskType) => dispatch(fetchTaskers(taskType))
     }
 }
 

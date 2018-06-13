@@ -1,0 +1,18 @@
+.datetime-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    margin-right: 20px;
+    width: 30%;
+    border: $border;
+    height: 300px;
+
+    .datetime{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between; 
+    }
+}

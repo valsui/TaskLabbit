@@ -1,0 +1,125 @@
+.pick-tasker-main-form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // flex: 2;
+    background: $form-background;
+
+    .title{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .details-title{
+            font-size: 24px;
+            padding-bottom: 15px;
+        }
+        
+        .details-subtitle{
+            // font-size: 
+        }
+
+    }
+}
+
+.pick-tasker-main-form > div {
+    padding: 25px;
+}
+
+.time-tasker-container{
+    display:flex;
+
+    justify-content: center;
+    // align-items: center;
+    width: 60%;
+    // min-width: 1200px;
+    // border: $border;
+}
+
+.tasker-index-container{
+}
+
+.tasker {
+    display: flex;
+    justify-content: space-between;
+    border: $border;
+    width: 70%;
+    height: 250px;
+    margin-bottom: 20px;
+    // padding-right:none;
+
+    .left-view-task-index{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // border:$border;
+        width: 30%;
+
+        img{
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            padding: 10px;
+        }
+
+        .button-profile{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            div{
+                color: $green;
+                font-size:12px;
+            }
+
+            .bottom-button{
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .right-view-task-index{
+        display: flex;
+        flex-direction: column;
+        border-left: $border;
+        width: 50%;
+        padding: 20px;
+
+        .right-top{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 40%;
+            padding-bottom: 10px;
+            // justify-content: space-between;
+
+            .tasker-name-price{
+                display: flex;
+                justify-content: space-between;
+                
+                .name{
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+            }
+
+        }
+
+        .right-bottom{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-top: 10px;
+            border-top:$border;
+        }
+
+        .right-bottom:first-child{
+            font-weight: bold;
+        } 
+    }
+}
