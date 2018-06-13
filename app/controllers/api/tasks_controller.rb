@@ -20,12 +20,15 @@ class Api::TasksController < ApplicationController
     end
 
     def update
-        @task = Task.find(params[:id])
-        # debugger
-        if @task && @task.update(task_params)
+        return (render json: ["Sorry, we're beginners and cannot find your task. Please create a new one."], status: 422) unless params[:id] != 'undefined'
+        # debugger;
+        @task = Task.find(params[:id]) if params[:id]
+
+        if @task
+            @task.update(task_params)
             render :show
         else
-            render json: ["Unable to update task #{params[:id]}"], status: 418
+            render json: ["Cannot update task"], status: 422
         end
     end
 

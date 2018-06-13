@@ -135,9 +135,14 @@ class TaskForm extends React.Component{
         let newState = merge({}, this.state)
         if(type === 'location'){
             const address = parser.parseAddress(this.state.task.location);
+            // debugger;
             // const test = parser.parseAddress('542 Simas Drive, Milpitas, CA 95035');
             if(address){
-                newState.errors[type] = false;
+                if(address.zip) {
+                    newState.errors[type] = false;
+                }else{
+                    newState.errors[type] = 'Please enter valid address';
+                }
             }else{
                 newState.errors[type] = 'Please enter valid address';
             }

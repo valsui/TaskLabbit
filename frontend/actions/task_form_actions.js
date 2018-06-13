@@ -53,8 +53,8 @@ export const createTask = (task) => (dispatch) => {
 
 export const updateTask = (task) => (dispatch) => {
     // debugger;
-    return APITaskUtil.updateTask(task).then((task) => dispatch(receiveTask(task)), (err) =>
-        dispatch(receiveFormError(err.responseJSON)))
+    return APITaskUtil.updateTask(task).then((task) => dispatch(receiveTask(task)), (err) => { debugger;
+        dispatch(receiveFormError(err.responseJSON))})
 }
 
 export const deleteTask = (taskId) => (dispatch) => (
