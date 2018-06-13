@@ -12,6 +12,7 @@ class TaskButtonComponent extends React.Component {
         this.props.addTasktoUI(this.props.taskName);
         window.sessionStorage.clear();
         window.sessionStorage.setItem('taskType', this.props.taskName);
+        debugger;
         this.props.history.push('/task/new');
     } 
 

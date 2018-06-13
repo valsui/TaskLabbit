@@ -25,7 +25,6 @@ const TaskerIndexItem = (props) => {
     if (!props.errors) {
         completed = 'completed';
     }
-
     return (
         <li className = {`tasker ${completed}`}>
             <div className='left-view-task-index'>

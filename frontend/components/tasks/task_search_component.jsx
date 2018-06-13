@@ -49,6 +49,9 @@ class TaskSearch extends React.Component{
         if(task){
             this.setState({search: this.capitalize(task)});
             this.props.addTasktoUI(this.capitalize(task));
+            window.sessionStorage.clear();
+            window.sessionStorage.setItem('taskType', this.capitalize(task));
+            debugger;
             this.props.history.push('/task/new');
         }
     }
