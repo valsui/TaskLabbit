@@ -33,7 +33,7 @@ class TaskForm extends React.Component{
                 description: this.props.currentTask.description || '',
                 tasker_id: null,
                 time: this.props.currentTask.time || "I'm flexible",
-                date: this.props.currentTask.date || '',
+                date: this.props.currentTask.date || ''
                 // id: this.props.currentTask.id
             },
             errors: {
@@ -69,7 +69,6 @@ class TaskForm extends React.Component{
     handleChange(type, ...args){
         let event;
         let path;
-        // debugger
         if (args.length === 2) {
             path = args[0];
             event = args[1];
@@ -213,6 +212,7 @@ class TaskForm extends React.Component{
                     removeFormErrors={this.props.removeFormError}
                     handleSubmit={this.handleSubmit}
                     renderSubError={this.renderSubError}
+                    taskers={this.props.taskers}
                     {...props} />
             )
         }

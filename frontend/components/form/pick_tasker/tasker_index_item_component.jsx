@@ -28,12 +28,16 @@ const TaskerIndexItem = (props) => {
     return (
         <li className = {`tasker ${completed}`}>
             <div className='left-view-task-index'>
-                <img src={tasker.image_url}/>
+                <img src={tasker.image_url} />
                 <div className='button-profile'>
                     <div>Reviews & Profile</div>
-                    <button className ='bottom-button' onClick = {() => props.handleChange('tasker_id','/task/confirm', tasker.id)}>Select & Continue</button>
-                </div>
-                {props.renderSubError()}
+                    <button className='bottom-button' onClick={() => {
+                            props.handleChange('tasker_id', '/task/confirm', tasker.id);
+                        }} >
+                        Select & Continue
+                        </button>
+            </div>
+            {props.renderSubError()}
             </div>
             <div className = 'right-view-task-index'>
                 <div className = 'right-top'>

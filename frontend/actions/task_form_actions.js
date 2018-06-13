@@ -52,7 +52,7 @@ export const createTask = (task) => (dispatch) => {
 }
 
 export const updateTask = (task) => (dispatch) => {
-    debugger;
+    // debugger;
     return APITaskUtil.updateTask(task).then((task) => dispatch(receiveTask(task)), (err) =>
         dispatch(receiveFormError(err.responseJSON)))
 }
