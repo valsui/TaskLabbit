@@ -55,7 +55,7 @@ class TaskSearch extends React.Component{
             this.props.history.push('/task/new');
         }
     }
-
+    //
     capitalize(string){
         let search = string.split(" ");
         return search.map((s) => `${s[0].toUpperCase()}${s.slice(1).toLowerCase()}`).join(" ");
