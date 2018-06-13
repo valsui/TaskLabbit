@@ -51,7 +51,7 @@ class TaskSearch extends React.Component{
             this.props.addTasktoUI(this.capitalize(task));
             window.sessionStorage.clear();
             window.sessionStorage.setItem('taskType', this.capitalize(task));
-            debugger;
+            // debugger;
             this.props.history.push('/task/new');
         }
     }
