@@ -3,14 +3,31 @@ import SortedByComponent from './sorted_by_component';
 
 const DateTimeComponent = (props) => {
     // debugger
+    let today = new Date();
+    // today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+    let timeCompleted = 'non-completed';
+    if (!props.errors.time) {
+        timeCompleted = 'completed';
+    }
+
+    let dateCompleted = 'non-completed';
+    if (!props.errors.date) {
+        dateCompleted = 'completed';
+    }
+
     return (
         <div className = 'datetime-container'>
-            <SortedByComponent {...props}/>
+            {/* <SortedByComponent {...props}/> */}
             <div className='datetime'>
-                <input type="date" className = 'date-selector' 
-                    onChange={(e) => {props.handleChange('date', e)}}/>
+                <div className='title'>
+                    <i className="far fa-clock"></i>
+                    Task Date & Time:
+                </div>
+                <input type="date" className = {`date ${dateCompleted}`} 
+                    onChange={(e) => {props.handleChange('date', e)}}
+                    />
 
-                <select className='time-selector' 
+                <select className= {`time ${timeCompleted}`}
                     onChange={(e) => {
                         props.handleChange('time', e)}}>
 

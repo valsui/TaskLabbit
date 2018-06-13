@@ -18,23 +18,29 @@ import React from 'react';
 // t.string "user_description"
 
 const TaskerIndexItem = (props) => {
-    // const taskerId = props.info.id;
+
     const tasker = props.info;
-    // debugger;
+
+    let completed = 'non-completed';
+    if (!props.errors) {
+        completed = 'completed';
+    }
+
     return (
-        <li className = 'tasker'>
+        <li className = {`tasker ${completed}`}>
             <div className='left-view-task-index'>
                 <img src={tasker.image_url}/>
                 <div className='button-profile'>
                     <div>Reviews & Profile</div>
                     <button className ='bottom-button' onClick = {() => props.handleChange('tasker_id','/task/confirm', tasker.id)}>Select & Continue</button>
                 </div>
+                {props.renderSubError()}
             </div>
             <div className = 'right-view-task-index'>
                 <div className = 'right-top'>
                     <div className='tasker-name-price'>
                         <div className='name'>{`${tasker.first_name} ${tasker.last_name}`}</div>
-                        <div>{`$ ${tasker.price_per_hour} /hr`}</div>
+                        <div className='price'>{`$ ${tasker.price_per_hour} /hr`}</div>
                     </div>
                     <div className='ratings'>
                         <div className = 'completed-tasks'>
@@ -48,7 +54,7 @@ const TaskerIndexItem = (props) => {
                     </div>
                 </div>
                 <div className = 'right-bottom'>
-                    <div>How I can help:</div>
+                    <div className='help-1'>How I can help:</div>
                     <div className = 'help'>{tasker.user_description}</div>
                 </div>
             </div>

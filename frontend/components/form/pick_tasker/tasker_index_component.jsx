@@ -16,7 +16,9 @@ class TaskerIndex extends React.Component{
                     {this.props.taskers.map((tasker) => {
                         return <TaskerIndexItem key={tasker.id}
                             info={tasker}
-                            handleChange={this.props.handleChange} />
+                            handleChange={this.props.handleChange}
+                            errors = {this.props.errors} 
+                            renderSubError={this.props.renderSubError}/>
                     })}
                 </ul>
             </div>

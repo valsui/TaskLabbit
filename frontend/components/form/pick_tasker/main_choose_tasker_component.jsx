@@ -35,12 +35,14 @@ class PickTaskerForm extends React.Component{
                 </div>
                 <div className='time-tasker-container'>
                     <DateTimeComponent currentState={this.props.currentState}
+                        errors={this.props.currentState.errors}
                         handleChange={this.props.handleChange}
                         removeFormErrors={this.props.removeFormErrors}
                         handleErrorSubmit={this.props.handleErrorSubmit}
                         renderSubError={this.props.renderSubError}
                                  />
                     <TaskerIndex currentState={this.props.state}
+                                errors={this.props.currentState.errors.tasker_id}
                                 handleChange={this.props.handleChange}
                                 removeFormErrors={this.props.removeFormError}
                                 handleErrorSubmit={this.props.handleErrorSubmit}

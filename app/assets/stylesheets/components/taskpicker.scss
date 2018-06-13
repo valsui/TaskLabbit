@@ -38,16 +38,19 @@
     // border: $border;
 }
 
-.tasker-index-container{
+.task-index-container{
+    width: 60%;
 }
 
 .tasker {
     display: flex;
     justify-content: space-between;
     border: $border;
-    width: 70%;
+    // width: 70%;
     height: 250px;
     margin-bottom: 20px;
+    border-radius: 3px;
+        background: white;
     // padding-right:none;
 
     .left-view-task-index{
@@ -56,11 +59,11 @@
         justify-content: center;
         align-items: center;
         // border:$border;
-        width: 30%;
+        width: 45%;
 
         img{
-            width: 150px;
-            height: 150px;
+            width: 125px;
+            height: 125px;
             object-fit: cover;
             padding: 10px;
         }
@@ -86,7 +89,7 @@
         display: flex;
         flex-direction: column;
         border-left: $border;
-        width: 50%;
+        width: 100%;
         padding: 20px;
 
         .right-top{
@@ -106,6 +109,16 @@
                     font-weight: bold;
                     font-size: 16px;
                 }
+
+                .price{
+                    font-weight: bold;
+                }
+            }
+
+            .ratings{
+                i{
+                    margin-right:5px;
+                }
             }
 
         }
@@ -116,10 +129,13 @@
             width: 100%;
             padding-top: 10px;
             border-top:$border;
+
+            .help-1{
+                font-weight: bold;
+                padding-bottom: 5px;
+            } 
         }
 
-        .right-bottom:first-child{
-            font-weight: bold;
-        } 
+
     }
 }
