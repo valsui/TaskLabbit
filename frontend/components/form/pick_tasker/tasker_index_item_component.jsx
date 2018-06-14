@@ -1,22 +1,5 @@
 import React from 'react';
 
-// t.string "first_name", null: false
-// t.string "last_name", null: false
-// t.string "email", null: false
-// t.string "password_digest", null: false
-// t.string "session_token", null: false
-// t.datetime "created_at", null: false
-// t.datetime "updated_at", null: false
-// t.integer "zipcode", null: false
-// t.boolean "is_tasker", default: false, null: false
-// t.string "task_type"
-// t.boolean "has_vehicle", default: false
-// t.integer "num_completed_tasks"
-// t.integer "num_reviews", default: 0
-// t.integer "rating", default: 100
-// t.float "price_per_hour"
-// t.string "user_description"
-
 const TaskerIndexItem = (props) => {
 
     const tasker = props.info;

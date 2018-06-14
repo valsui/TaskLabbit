@@ -251,5 +251,26 @@ task2 = Task.create(task_type: 'Cleaning',
              user_id: user1.id,
              tasker_id: user4.id,
              completed: true)
+task3 = Task.create(task_type: 'Cleaning',
+             date: Faker::Date.between(100.days.ago, Date.today),
+             time: "12:30 AM",
+             location: '825 Battery Street, San Francisco, CA, 12345',
+             duration: 'Medium - Est. 2-3 hrs',
+             need_vehicle: false,
+             description: Faker::FamilyGuy.quote,
+             user_id: user1.id,
+             tasker_id: user4.id,
+             completed: false)
+task3 = Task.create(task_type: 'Web Design & Development',
+             date: Faker::Date.between(100.days.ago, Date.today),
+             time: "11:30 AM",
+             location: '825 Battery Street, San Francisco, CA, 12345',
+             duration: 'Medium - Est. 2-3 hrs',
+             need_vehicle: false,
+             description: Faker::FamilyGuy.quote,
+             user_id: user1.id,
+             tasker_id: user4.id,
+             completed: false)
+
 
 

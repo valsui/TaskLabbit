@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import TaskForm from './main_task_form_component';
-import { createTask, fetchTask, updateTask, fetchTasks, removeFormError } from '../../actions/task_form_actions';
+import { createTask, fetchTask, updateTask, fetchTasks, removeFormError, confirmTask } from '../../actions/task_form_actions';
 import { fetchTaskers } from '../../actions/user_actions';
+import { getTaskers, getByCurrentLocation } from '../../reducers/tasker_selectors';
 
 //need to write action to create post form the entire form 
 //this from will contain the following components:
@@ -23,13 +24,12 @@ import { fetchTaskers } from '../../actions/user_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger;
     return {
-        taskType: state.ui.task,
+        // taskType: state.ui.task,
         currentUser: state.session.currentUser,
-        currentTask: Object.values(state.entities.tasks)[0] || {},
+        currentTask: Object.values(state.ui.task)[0] || {},
         errors: state.errors.formErrors,
-        taskers: Object.values(state.entities.users)
+        taskers: getByCurrentLocation(state)
     }
 }
 
@@ -40,7 +40,8 @@ const mapDispatchToProps = (dispatch) => {
         updateTask: (task) => dispatch(updateTask(task)),
         fetchTasks: (currentUserId) => dispatch(fetchTasks(currentUserId)),
         removeFormError: () => dispatch(removeFormError()),
-        fetchTaskers: (taskType) => dispatch(fetchTaskers(taskType))
+        fetchTaskers: (taskType) => dispatch(fetchTaskers(taskType)),
+        confirmTask: (id) => dispatch(confirmTask(id))
     }
 }
 

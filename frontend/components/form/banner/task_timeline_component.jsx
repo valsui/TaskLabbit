@@ -44,7 +44,6 @@ class TaskTimeline extends React.Component {
         if(newProps.location.pathname !== this.props.location.pathname){
             this.changeTime(newProps.location.pathname);
         }
-        // debugger;
     }
 
     addBoldClass(step){

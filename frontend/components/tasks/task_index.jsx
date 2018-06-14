@@ -1,16 +1,33 @@
 import React from 'react';
 import TaskItem from './task_index_item';
-// import GreetingContainer from '../greeting/greeting_container';
 
 class TaskIndex extends React.Component {
     constructor(props){
         super(props);
+
+        this.deleteTask = this.deleteTask.bind(this);
+        this.render = this.render.bind(this);
+    }
+
+    deleteTask(id){
+        this.props.deleteTask(id).then(this.render());
+    }
+
+    componentDidMount() {
+        this.props.fetchTasks(this.props.currentUser.id);
     }
 
     render(){
+        const ownTasks = this.props.ownTasks;
+
         return (
-            <div className='task-index-splash'>
-                <ul></ul>
+            <div className='user-task-index-container'>
+                <div>Your created tasks</div>
+                <ul className = 'user-task-list'>
+                    {ownTasks.map((task) => {
+                        return <TaskItem key={task.id} deleteTask ={this.deleteTask} task ={task}/>
+                    })}
+                </ul>
             </div>
         )
     }

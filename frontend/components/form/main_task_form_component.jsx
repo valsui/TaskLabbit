@@ -7,7 +7,8 @@ import PickTaskerForm from './pick_tasker/main_choose_tasker_component';
 import ConfirmTaskForm from './confirm_task/confirm_task_component';
 import { Route } from 'react-router-dom';
 import merge from 'lodash/merge';
-import parser from 'parse-address';
+import { verifyAddress } from '../../util/helpers';
+// import parser from 'parse-address';
 
 //components to make and import
 // Task interest
@@ -31,7 +32,7 @@ class TaskForm extends React.Component{
                 location: this.props.currentTask.location || '',
                 duration: this.props.currentTask.duration || '',
                 description: this.props.currentTask.description || '',
-                tasker_id: null,
+                tasker_id: this.props.currentTask.tasker_id || null,
                 time: this.props.currentTask.time || "I'm flexible",
                 date: this.props.currentTask.date || ''
                 // id: this.props.currentTask.id
@@ -49,13 +50,16 @@ class TaskForm extends React.Component{
         
         this.handleChange = this.handleChange.bind(this);
         this.handleSubformSubmit = this.handleSubformSubmit.bind(this);
-        this.handleSubmit = this.handleSubformSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleErrorSubmit = this.handleErrorSubmit.bind(this);
         this.renderSubError = this.renderSubError.bind(this);
     }
 
     componentDidMount(){
         this.props.removeFormError();
+        if (sessionStorage.getItem('id')){
+            this.props.fetchTask(sessionStorage.getItem('id'));
+        }
     }
 
     componentWillReceiveProps(newProps){
@@ -66,6 +70,7 @@ class TaskForm extends React.Component{
         }
     }
 
+// on change handlers - lots of code spaghetti because this handles different input types - like radio buttons and selectors
     handleChange(type, ...args){
         let event;
         let path;
@@ -86,40 +91,50 @@ class TaskForm extends React.Component{
         }else{
             this.setState(newState, () => this.handleErrorSubmit(type, event));
         }
-        // console.log(this.props, type, e, this.state);
+        console.log(type,this.state);
     }
 
+//Will update with user id on the confirmation page. Special action to clear the ui slice of state that contains the current task in order to redirect to the user dashboard once the user has successfully logged in and confirmed the task.
     handleSubmit(e){
-        // e.preventDefault;
-        //dispatch update Task;
+        e.preventDefault();
+        debugger;
         if(this.props.currentUser){
-            this.props.updateTask(this.state.task).then(() => this.props.history.push('/dashboard'));
+            let newState = merge({}, this.state);
+            debugger;
+            newState.task.user_id = this.props.currentUser.id;
+            this.setState(newState, () => this.props.confirmTask(this.state.task).then(() => this.props.history.push('/dashboard')));
         }else{
             this.props.history.push('/login');
         }
     }
 
+// This function will handle rendering the new form for the subforms.Buttons will not function until errors are cleared on teh page.
     handleSubformSubmit(path, e) {
         // e.preventDefault();
         const error = this.state.errors;
         if(this.props.location.pathname.includes('/new')){
             if(!error['location'] && !error['duration'] && !error['description'] && !error['need_vehicle']){
-                //handle vehicle 
+                //handle need_vehicle in post
                 if (this.state.task.need_vehicle === 'Not needed for task'){
                     let newState = merge({}, this.state)
                     newState.task.need_vehicle = false;
                     this.setState(newState, () => this.props.createTask(this.state.task).then(() => this.props.history.push(path)));
-                }else{
+                }else if(!this.props.currentTask.id){
                     this.props.createTask(this.state.task).then(() => this.props.history.push(path));
+                }else{
+                    this.props.updateTask(this.state.task).then(() => this.props.history.push(path));
                 }
             }
         }else if(this.props.location.pathname.includes('/price')){
             if(!error['time'] && !error['date'] && !error['tasker_id']){
+                debugger;
                 this.props.updateTask(this.state.task).then(() => this.props.history.push(path));
             }
         }
     }
 
+    
+//Handles errors in the local state on change. This function will validate the location to ensure that a zipcode is present and make sure that no fields are left blank. 
     handleErrorSubmit(type, ...args){
         let event;
         let path;
@@ -134,34 +149,27 @@ class TaskForm extends React.Component{
         }
         let newState = merge({}, this.state)
         if(type === 'location'){
-            const address = parser.parseAddress(this.state.task.location);
-            // debugger;
-            // const test = parser.parseAddress('542 Simas Drive, Milpitas, CA 95035');
-            if(address){
-                if(address.zip) {
-                    newState.errors[type] = false;
-                }else{
-                    newState.errors[type] = 'Please enter valid address';
-                }
+            if(verifyAddress(this.state.task.location)){
+                newState.errors[type] = false;
             }else{
                 newState.errors[type] = 'Please enter valid address';
             }
         }else{
-            // debugger;
             if (this.state.task[type]){
                 newState.errors[type] = false;
             }else{
                 newState.errors[type] = 'Cannot be blank';
             }
         }
-        // debugger;
         if(path){
+            //handles the action of the buttons that need to render a new route
             this.setState(newState, () => this.handleSubformSubmit(path,event));
         }else {
             this.setState(newState);
         }
     }
 
+//renders database errors
     renderErrors() {
         if (this.props.errors) {
             return (
@@ -175,7 +183,8 @@ class TaskForm extends React.Component{
             )
         }
     };
-
+    
+// renders local form errors
     renderSubError(type){
         if(this.state.errors[type]){
             return(
@@ -192,6 +201,8 @@ class TaskForm extends React.Component{
                                 removeFormErrors = {this.props.removeFormError}
                                 handleErrorSubmit = {this.handleErrorSubmit}
                                 renderSubError = {this.renderSubError}
+                                currentTask={this.props.currentTask}
+                                fetchTask={this.props.fetchTask}
                                 {...props}/>
             ) 
         }  
@@ -205,6 +216,8 @@ class TaskForm extends React.Component{
                                 renderSubError={this.renderSubError}
                                 taskers = {this.props.taskers}
                                 fetchTaskers = {this.props.fetchTaskers}
+                                currentTask = {this.props.currentTask}
+                                fetchTask={this.props.fetchTask}
                                 {...props}/>
             )
         }
@@ -218,11 +231,13 @@ class TaskForm extends React.Component{
                     handleSubmit={this.handleSubmit}
                     renderSubError={this.renderSubError}
                     taskers={this.props.taskers}
+                    fetchTask={this.props.fetchTask}
+                    currentTask={this.props.currentTask}
+                    fetchTaskers={this.props.fetchTaskers}
                     {...props} />
             )
         }
        
-        // debugger;
         return (
             <div>
                 <GreetingContainer/>

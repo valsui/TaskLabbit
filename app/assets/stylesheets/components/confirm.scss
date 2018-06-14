@@ -1,0 +1,67 @@
+.confirm-task-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: $form-background;
+
+    .header{
+        padding: 15px;
+        font-size: 24px;
+        // margin-bottom: 40px;
+    }
+    .subheader{
+        padding: 15px;
+    }
+}
+
+.confirm-task-form{
+    width: 500px;
+    height: 500px;
+    border: $border;
+    background: white;
+    border-radius: 5px;
+
+    .title{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 5px;
+    }
+
+    .details{
+        display: flex;
+        // justify-content: space-between;
+        flex-direction: column;
+
+        .time-date-tasker{
+            display: flex;
+            justify-content: space-between;
+            height: 20%;
+            img{
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+            }
+        }
+
+        .edit{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            // color: $green;
+            .link{
+                color: $green;
+                font-size: 12px;
+                padding: 5px;
+            }
+            button, div {
+                margin-top: 5px;
+            }
+            
+            div{
+                font-size: 12px;
+            }
+        }
+    }
+}

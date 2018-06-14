@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { loginUser, signupUser, logoutUser } from './actions/session_actions';
 import configureStore from './store/store.js';
 import Root from './components/root';
 // import { receiveTaskers } from './actions/user_actions';
@@ -12,24 +11,30 @@ import Root from './components/root';
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
 
-    // window.fetchTaskers = fetchTaskers;
-    // window.fetchTasks = fetchTasks;
-    // window.receiveTasks = receiveTasks;
-    // window.receiveTaskers = receiveTaskers;
-
+    // debugger;
+    // sessionStorage.setItem('id', 4);
     let store;
+    let preloadedState = { 
+        entities: {
+            users:{}
+        },
+        session: {
+            currentUser: '',
+            currentTaskId: ''
+        }
+    };
     if (window.currentUser) {
-        const preloadedState = {
-            entities: {
-                users: { [window.currentUser.id]: window.currentUser }
-            },
-            session: { currentUser: window.currentUser} 
-        };
-        store = configureStore(preloadedState);
+        preloadedState.entities.users = { [window.currentUser.id]: window.currentUser };
+        preloadedState.session.currentUser = window.currentUser;
         delete window.currentUser;
     } else {
         store = configureStore();
     }
+
+    if (sessionStorage.getItem('id')){
+        preloadedState.session.currentTaskId = parseInt(sessionStorage.getItem('id'));
+    }
+    store = configureStore(preloadedState);
 
     window.store = store;
 

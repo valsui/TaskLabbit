@@ -5,6 +5,8 @@ class Api::TasksController < ApplicationController
     end
 
     def show
+        return (render json: ["Sorry, we're beginners and cannot find your task. Please create a new one."], status: 422) if nullId
+
         @task = Task.find(params[:id])
         render :show
     end
@@ -20,8 +22,8 @@ class Api::TasksController < ApplicationController
     end
 
     def update
-        return (render json: ["Sorry, we're beginners and cannot find your task. Please create a new one."], status: 422) unless params[:id] != 'undefined'
-        # debugger;
+        return (render json: ["Sorry, we're beginners and cannot find your task. Please create a new one."], status: 422) if nullId
+
         @task = Task.find(params[:id]) if params[:id]
 
         if @task
@@ -32,10 +34,14 @@ class Api::TasksController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
         @task = Task.find(params[:id])
-        @task.delete
+        @task.destroy
         render :show 
+    end
+
+    def nullId
+        params[:id] == 'undefined' || params[:id] == 'null'
     end
 
     private 

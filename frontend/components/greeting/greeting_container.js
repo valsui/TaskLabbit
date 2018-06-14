@@ -2,10 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Greeting from './greeting_component';
 import { logoutUser } from '../../actions/session_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        currentUser: state.session.currentUser
+        currentUser: state.session.currentUser,
+        history: ownProps.history
     }
 }
 
@@ -15,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Greeting);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Greeting));

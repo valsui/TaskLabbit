@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TaskDuration = (props) => {
-    // debugger;
     let completed = 'non-completed';
     if (!props.errors) {
         completed = 'completed';

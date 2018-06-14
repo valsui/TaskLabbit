@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-const Greeting = ({ currentUser, logoutUser }) => {
+const Greeting = ({ history, currentUser, logoutUser }) => {
     const sessionLinks = () => (
         <div className='navBar-big'>
             <div className='navBar-small'>
-                <div className = 'navBar-logo'></div>
+                <img className = 'navBar-logo'
+                    src='https://i.imgur.com/rFnFZso.png'
+                    onClick = {(e) => goBackTo('/',e)}/>
                 <div className = 'navBar-buttons'>
                     <div className='nav-button'>
                         <Link className='nav-button-link' to="/login">Login</Link>
@@ -23,16 +25,23 @@ const Greeting = ({ currentUser, logoutUser }) => {
         logoutUser();
     }
 
+    const goBackTo = (path, e) => {
+        e.preventDefault();
+        history.push(path);
+    }
+
     const personalGreeting = () => (
         <hgroup className="header-group">
             <div className='navBar'>
                 <div className='navBar-small'>
-                    <div className='navBar-logo'></div>
+                    <img className='navBar-logo'
+                        src='https://i.imgur.com/rFnFZso.png'
+                        onClick={(e) => goBackTo('/', e)} />
 
                     
                     <div className='header-login'>
                         {/* <div className='user-picture'> */}
-                        <img src="https://media.artoyz.net/shop/24449-large_default/14-wooly-stache-labbit.jpg" />
+                        <img onClick = {(e) => goBackTo('/dashboard', e)} src={currentUser.image_url} />
                         {/* </div> */}
                         <div className="header-name">Hi, {`${currentUser.first_name} ${currentUser.last_name}`}!
                         </div>

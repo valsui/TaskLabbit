@@ -26,7 +26,7 @@ const TaskDetailsText = (props) => {
                                 props.handleErrorSubmit('description','/task/price',e)
                                 // props.handleSubformSubmit('/task/price', e)
                                 }}>
-                            Continue
+                            Save & Continue
                     </button>
                 </div>
             </form>

@@ -19,10 +19,10 @@ class PickTaskerForm extends React.Component{
     componentDidMount(){
         const taskType = this.props.currentState.task.task_type;
         this.props.fetchTaskers(taskType);
+        this.props.fetchTask(sessionStorage.getItem('id'));
     }
 
     render(){
-        // debugger;
         return(
             <div className = 'pick-tasker-main-form'>
                 <div className = 'title'>
@@ -48,6 +48,7 @@ class PickTaskerForm extends React.Component{
                                 handleErrorSubmit={this.props.handleErrorSubmit}
                                 renderSubError={this.props.renderSubError}
                                 taskers={this.props.taskers}
+                                currentTask = {this.props.currentTask}
                                 />
                 </div>
 

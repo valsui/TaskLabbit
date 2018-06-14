@@ -1,4 +1,6 @@
-
+.header-group{
+    width: 100%;
+}
 .navBar {
     border-bottom: 1px solid $border-grey;
     width: 100%;
@@ -34,31 +36,31 @@
 }
 
 .navBar-logo {
-    background-image: url('https://i.imgur.com/rFnFZso.png');
-    background-size: contain;
     width: 150px;
     height: 50px;
-    align-content: center;
-    background-repeat: no-repeat; 
-    margin-left: 20px;
+    object-fit: cover;
+    cursor: pointer;
 }
 
 
 
 .header-login {
     display:flex;
-    justify-content: space-evenly;
-    width: 400px;
+    justify-content: space-around;
+    width: 275px;
     height: auto;
     
     img {
         border-radius: 100%;
-        width: 15%;
+        width: 50px;
+        object-fit: cover;
+        cursor: pointer;
     }
 
     .header-name {
         color: $green;
         padding-top: 15px;
+        // margin-right: -10px;
     }
 
     button{

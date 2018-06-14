@@ -2,4 +2,83 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: $background-grey;
+
+    .search-stuff{
+        padding: 15px;
+        font-size: 24px;
+    }
+
+    .search-box{
+        background: white;
+    }
+}
+
+.user-task-index-container>div{
+    padding: 20px;
+    font-size: 20px;
+    color: $green;
+}
+.user-task-index-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+
+    .user-task-list{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .task-item{
+        margin-bottom: 20px;
+        width: 100%;
+        height: 40%;
+        border: $border;
+        display: flex;
+        flex-direction: column;
+        border-radius: 3px;
+        padding: 10px;
+        background: white;
+        // align-items: center;
+
+        .type-tasker{
+            display:flex;
+            justify-content: space-between;
+            max-height: 100px;
+
+            .type{
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .tasker{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100px;
+                border: none;
+
+                img{
+                    object-fit:cover;
+                    width: 85px;
+                    height: 85px;
+                    border-radius: 20%;
+                }
+            }
+
+            .status{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .status, .datetime, .location-details, .description, .vehicle{
+            margin-bottom: 20px;
+            border-bottom: $border;
+            padding: 5px;
+        }
+
+    }
+
 }

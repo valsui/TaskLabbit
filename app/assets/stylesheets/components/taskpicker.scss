@@ -38,6 +38,28 @@
 
 .task-index-container{
     width: 60%;
+     
+    .found-taskers{
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+     }
+}
+
+.no-found-taskers{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .no-found-pic{
+        width: 90px;
+        height: 90px;
+    }
+
+    div{
+        margin-left: 10px;
+    }
 }
 
 .tasker {
