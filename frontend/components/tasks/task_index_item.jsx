@@ -17,12 +17,12 @@ class TaskItem extends React.Component{
         const vehicle = () => {
             if(task.need_vehicle){
                 return <div className='vehicle'>
-                <div className='title'>Location:</div>
+                <div className='title'>Vehicle:</div>
                 Task requires vehicle
                 </div>
             }else{
                 return <div className='vehicle'>
-                <div className='title'>Location:</div>
+                <div className='title'>Vehicle:</div>
                 No vehicle required</div>
             }
         }

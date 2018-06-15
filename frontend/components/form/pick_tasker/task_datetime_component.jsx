@@ -18,6 +18,7 @@ const DateTimeComponent = (props) => {
     return (
         <div className = 'datetime-container'>
             {/* <SortedByComponent {...props}/> */}
+            {props.renderSubError('date')}
             <div className='datetime'>
                 <div className='title'>
                     <i className="far fa-clock"></i>
@@ -27,7 +28,7 @@ const DateTimeComponent = (props) => {
                     placeholder = 'Please pick a date'
                     onChange={(e) => {props.handleChange('date', e)}}
                     />
-
+                {props.renderSubError('time')}
                 <select className= {`time ${timeCompleted}`}
                     onChange={(e) => {
                         props.handleChange('time', e)}}>

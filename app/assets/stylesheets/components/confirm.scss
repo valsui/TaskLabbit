@@ -27,20 +27,21 @@
     align-content: space-between;
     flex-direction: column;
 
-    &:hover{
-        border: $box-shadow-grey;
-    }
-
     .title{
         display: flex;
         justify-content: space-between;
         padding: 10px 5px;
         align-items: center;
 
+        .price{
+            margin-right: 30px;
+        }
+
         .type{
             padding-bottom: 3px;
             font-weight: bold;
             font-size: 24px;
+            margin-left:-5px;
         }
     }
 
@@ -53,7 +54,7 @@
             display: flex;
             justify-content: space-between;
             align-content: center;
-            height: 125px;
+            height: 130px;
 
             .tasker{
                 display: flex;
@@ -67,12 +68,19 @@
                     width: 90px;
                     height: 90px;
                     object-fit: cover;
+                    margin-top: 10px;
+                    border: $border;
+                    border-radius: 30%;
                     }
 
                 .name{
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+
+                    div{
+                        font-weight: bold;
+                    }
                 }
             }
         }
@@ -83,6 +91,14 @@
             word-break:break-all;
         }
 
+        .date-time .mini {
+            border-bottom: 1px solid $green;
+            padding-bottom: 5px;
+        }
+
+        .date {
+            padding-top: 5px; 
+        }
 
         .mini{
             padding-bottom: 3px;
@@ -92,6 +108,8 @@
 
         .location, .vehicle, .description {
                 padding-bottom: 10px;
+                padding-top: 10px;
+                border-bottom: 1px solid $green;
             }
 
         .edit{

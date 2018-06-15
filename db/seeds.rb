@@ -62,6 +62,21 @@ user4 = User.create(first_name: 'Baker',
                     num_reviews: rand(100),
                     user_description: Faker::SiliconValley.quote);
 
+user5 = User.create(first_name: 'Gudetama',
+                    last_name: 'Lazy Egg', 
+                    email: 'meh@email.com', 
+                    password:'password', 
+                    zipcode: 12345, 
+                    is_tasker: true, 
+                    has_vehicle: true, 
+                    task_type: 'Cleaning', 
+                    image_url: 'https://img00.deviantart.net/d825/i/2016/103/c/1/gudetama_by_magnumunyu-d9yuemc.jpg',
+                     price_per_hour: 30, 
+                    num_completed_tasks: rand(50),
+                    rating: rand(100),
+                    num_reviews: rand(100),
+                    user_description: 'Get it out. Too lazy';
+
 task_types = ["Delivery",
                 "Event Planning",
                 "Cleaning",
@@ -129,7 +144,13 @@ labbit_urls = [
     "https://media.artoyz.net/shop/24449-large_default/14-wooly-stache-labbit.jpg",
     "https://i.pinimg.com/736x/fd/67/6d/fd676d44d3bf03ba3418bae4beb10bc9.jpg",
     "https://blog.kidrobot.com/wp-content/uploads/2012/07/stache-labbit-plush-5.jpg",
-    "https://cdn-img-1.wanelo.com/p/9a0/81d/011/c316985529cb57aeb192288/x354-q80.jpg"
+    "https://cdn-img-1.wanelo.com/p/9a0/81d/011/c316985529cb57aeb192288/x354-q80.jpg",
+    "https://sl-production.s3.amazonaws.com/photos/5049455663051f2014000055/big_Blue_Sailor_Labbit.jpg",
+    "http://s3.amazonaws.com/trampt/images/products/000/116/694/Stache_Labbit_Stool_yellow-Frank_Kozik-Labbit_Stool-Kidrobot-trampt-116694m.jpg?1381948532",
+    "https://cdn.shopify.com/s/files/1/0803/3763/products/pink-donut-side.jpg?v=1508429153",
+    "http://www.allvinyls.com/kr/images/labbitshappy2_9.jpg",
+    "https://www.characterstation.com/eshop/2917-thickbox_default/kidrobot-cyborg-labbit-by-chuckboy-x-kozik-without-box-geneva-switzerland-online-shop.jpg",
+    "http://s3.amazonaws.com/trampt/images/products/000/285/003/Labbit_Reindeer_Jacket-Frank_Kozik-Labbit_Plush-Kidrobot-trampt-285003o.jpg?1478456663"
 ];
 
 task_length = task_types.length;
@@ -235,7 +256,7 @@ end
 
 task1 = Task.create(task_type: 'Web Design & Development',
              date: Faker::Date.between(100.days.ago, Date.today),
-             time: Faker::Time.backward(20, :morning),
+             time: "8:00 PM",
              location: '825 Battery Street, San Francisco, CA, 12345',
              duration: 'Medium - Est. 2-3 hrs',
              need_vehicle: false,
@@ -244,7 +265,7 @@ task1 = Task.create(task_type: 'Web Design & Development',
              completed: true)
 task2 = Task.create(task_type: 'Cleaning',
              date: Faker::Date.between(100.days.ago, Date.today),
-             time: Faker::Time.backward(20, :morning),
+             time: "10:00 PM",
              location: '825 Battery Street, San Francisco, CA, 12345',
              duration: 'Medium - Est. 2-3 hrs',
              need_vehicle: false,
