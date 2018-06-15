@@ -20,6 +20,10 @@ class TaskIndex extends React.Component {
     render(){
         const ownTasks = this.props.ownTasks;
 
+        if(ownTasks.length === 0){
+            return <div className='no-tasks'>You currently have no tasks.</div>
+        }
+
         return (
             <div className='user-task-index-container'>
                 <div>Your created tasks</div>

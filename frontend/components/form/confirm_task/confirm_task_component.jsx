@@ -18,10 +18,7 @@ class ConfirmTaskForm extends React.Component {
 
 
     componentDidMount(){
-        //remove this after css
         this.props.fetchTask(sessionStorage.getItem('id'));
-        // const taskType = "Web Design & Development";
-        // this.props.fetchTaskers(taskType);  
     }
 
     
@@ -40,7 +37,7 @@ class ConfirmTaskForm extends React.Component {
     render(){
         let task = this.props.currentTask;
 
-        if(task.tasker_id === undefined){
+        if(!task){
             return <div>i have nothing!!!</div>
         }
 

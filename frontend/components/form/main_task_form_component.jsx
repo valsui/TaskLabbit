@@ -64,10 +64,20 @@ class TaskForm extends React.Component{
 
     componentWillReceiveProps(newProps){
         if(this.props.currentTask){
-            let newState = merge({}, this.state)
-            newState.task.id = this.props.currentTask.id;
+            let newState = merge({}, this.state);
+            newState.task.id = (this.props.currentTask.id);
+            newState.task.user_id = (this.props.currentUser ? this.props.currentUser.id : null);
+            newState.task.task_type = (window.sessionStorage.getItem('taskType'));
+            newState.task.need_vehicle = (this.props.currentTask.need_vehicle || false);
+            newState.task.location = (this.props.currentTask.location || '');
+            newState.task.duration = (this.props.currentTask.duration || '');
+            newState.task.description = (this.props.currentTask.description || '');
+            newState.task.tasker_id = (this.props.currentTask.tasker_id || null);
+            newState.task.time = (this.props.currentTask.time || "I'm flexible");
+            newState.task.date = (this.props.currentTask.date || '');        
             this.setState(newState);
         }
+        
     }
 
 // on change handlers - lots of code spaghetti because this handles different input types - like radio buttons and selectors
@@ -91,16 +101,16 @@ class TaskForm extends React.Component{
         }else{
             this.setState(newState, () => this.handleErrorSubmit(type, event));
         }
-        console.log(type,this.state);
+        // console.log(type,this.state);
     }
 
 //Will update with user id on the confirmation page. Special action to clear the ui slice of state that contains the current task in order to redirect to the user dashboard once the user has successfully logged in and confirmed the task.
     handleSubmit(e){
         e.preventDefault();
-        debugger;
+        // debugger;
         if(this.props.currentUser){
             let newState = merge({}, this.state);
-            debugger;
+            // debugger;
             newState.task.user_id = this.props.currentUser.id;
             this.setState(newState, () => this.props.confirmTask(this.state.task).then(() => this.props.history.push('/dashboard')));
         }else{
@@ -127,7 +137,6 @@ class TaskForm extends React.Component{
             }
         }else if(this.props.location.pathname.includes('/price')){
             if(!error['time'] && !error['date'] && !error['tasker_id']){
-                debugger;
                 this.props.updateTask(this.state.task).then(() => this.props.history.push(path));
             }
         }

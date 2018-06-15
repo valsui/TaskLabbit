@@ -22,7 +22,10 @@ class DashboardComponent extends React.Component{
         return (
             <div className = 'dashboard'>
                 <GreetingContainer/>
-                <div className = 'search-stuff'>Begin a Task</div>
+                <div className='header'>
+                    <div className = 'greeting'>{`Welcome to Task Labbit, ${this.props.currentUser.first_name}!`}</div>
+                    <img src="https://thehobbyheaven.files.wordpress.com/2016/01/dscf71631.jpg?w=778"/>
+                </div>
                 <TaskSearchContainer/>
                 <TaskIndexContainer/>
             </div>

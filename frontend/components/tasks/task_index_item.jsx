@@ -11,7 +11,7 @@ class TaskItem extends React.Component{
         const tasker = task.tasker;
 
         if (!tasker) {
-            return <div>No Current Task</div>
+            return <div>Something went wrong</div>
         }
         
         const vehicle = () => {

@@ -75,7 +75,7 @@ class TaskSearch extends React.Component{
                 <input 
                     className='search-box-input' 
                     type='text' value = {this.state.search} 
-                    placeholder='Need Something Different?' 
+                    placeholder='Search For a Task' 
                     onChange = {this.handleChange()}
                     />
                 </div>

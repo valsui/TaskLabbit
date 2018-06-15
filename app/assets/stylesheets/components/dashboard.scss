@@ -23,11 +23,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 70%;
+    width: 100%;
 
     .user-task-list{
         display: flex;
         flex-direction: column-reverse;
+        width: 800px;;
     }
 
     .task-item{

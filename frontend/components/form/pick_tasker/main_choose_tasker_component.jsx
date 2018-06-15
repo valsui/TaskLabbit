@@ -2,27 +2,19 @@ import React from 'react';
 import TaskerIndex from './tasker_index_component';
 import DateTimeComponent from './task_datetime_component';
 
-{/* <PickTaskerForm currentState={this.state}
-    handleChange={this.handleChange}
-    removeFormErrors={this.props.removeFormError}
-    handleErrorSubmit={this.handleErrorSubmit}
-    renderSubError={this.renderSubError}
-    taskers={this.props.taskers}
-    fetchTaskers={this.props.fetchTaskers}
-    {...props} /> */}
-
 class PickTaskerForm extends React.Component{
     constructor(props){
         super(props);
     }
 
     componentDidMount(){
-        const taskType = this.props.currentState.task.task_type;
+        const taskType = sessionStorage.getItem('taskType');
         this.props.fetchTaskers(taskType);
         this.props.fetchTask(sessionStorage.getItem('id'));
     }
 
     render(){
+        // debugger;
         return(
             <div className = 'pick-tasker-main-form'>
                 <div className = 'title'>
