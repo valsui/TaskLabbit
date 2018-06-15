@@ -9,6 +9,13 @@
     flex-direction: column;
     align-items: center;
     background: $background-grey;
+    height: 100vh;
+
+    .no-tasks{
+        padding: 10px;
+        color: $green;
+        font-size: 20px;
+    }
 
     .search-stuff{
         padding: 15px;
