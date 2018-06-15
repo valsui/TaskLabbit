@@ -3,8 +3,7 @@ import React from 'react';
 // import { geocodeByAddress, geocodeByPlaceId, getLatLng } from 'react-places-autocomplete'
 
 const TaskLocation = (props) => {
-    // console.log('LOCATION:', props.location);
-
+    
     let completed = 'non-completed';
     if (!props.errors) {
         completed = 'completed';

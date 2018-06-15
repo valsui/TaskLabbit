@@ -126,7 +126,7 @@ class TaskForm extends React.Component{
                     let newState = merge({}, this.state)
                     newState.task.need_vehicle = false;
                     this.setState(newState, () => this.props.createTask(this.state.task).then(() => this.props.history.push(path)));
-                }else if(!this.props.currentTask.id){
+                } else if (!sessionStorage.getItem('id')){
                     this.props.createTask(this.state.task).then(() => this.props.history.push(path));
                 }else{
                     this.props.updateTask(this.state.task).then(() => this.props.history.push(path));

@@ -31,10 +31,13 @@
     "node": "8.4.0",
     "npm": "6.1.0"
   },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch -d",
-    "postinstall": "webpack"
+    "postinstall": "webpack --optimize-minimize"
   },
   "repository": {
     "type": "git",

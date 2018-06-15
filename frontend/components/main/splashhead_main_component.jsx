@@ -24,7 +24,10 @@ class MainHeadComponent extends React.Component {
                             to get things done around the house
                         </div>
                         <div className='main-subtitle'>
-                            Choose from over 60,000 carefully vetted and feedback rated Labbits to get quick help
+                            Choose from over 60,000 carefully vetted and feedback rated Labbits to get quick help. 
+                        </div>
+                        <div className='main-subtitle-2'>
+                            Begin by choosing or searching a task.
                         </div>
                         <div className='main-buttons-container'>
                             <TaskButtonContainer taskName = 'Mounting & Installation'/>
