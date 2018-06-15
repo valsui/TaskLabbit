@@ -15,17 +15,33 @@
     }
 }
 
+
 .confirm-task-form{
     width: 500px;
-    height: 500px;
+    height: auto;
     border: $border;
     background: white;
     border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+
+    &:hover{
+        border: $box-shadow-grey;
+    }
 
     .title{
         display: flex;
         justify-content: space-between;
         padding: 10px 5px;
+        align-items: center;
+
+        .type{
+            padding-bottom: 3px;
+            font-weight: bold;
+            font-size: 24px;
+        }
     }
 
     .details{
@@ -36,13 +52,47 @@
         .time-date-tasker{
             display: flex;
             justify-content: space-between;
-            height: 20%;
-            img{
-                width: 100px;
-                height: 100px;
-                object-fit: cover;
+            align-content: center;
+            height: 125px;
+
+            .tasker{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                border: none;
+                height: 100%;
+
+                img{
+                    width: 90px;
+                    height: 90px;
+                    object-fit: cover;
+                    }
+
+                .name{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
             }
         }
+
+        .text{
+            width:100%;
+            height:auto;
+            word-break:break-all;
+        }
+
+
+        .mini{
+            padding-bottom: 3px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .location, .vehicle, .description {
+                padding-bottom: 10px;
+            }
 
         .edit{
             display: flex;

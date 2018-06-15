@@ -35,7 +35,6 @@ class TaskForm extends React.Component{
                 tasker_id: this.props.currentTask.tasker_id || null,
                 time: this.props.currentTask.time || "I'm flexible",
                 date: this.props.currentTask.date || ''
-                // id: this.props.currentTask.id
             },
             errors: {
                 need_vehicle: " ",
@@ -101,7 +100,6 @@ class TaskForm extends React.Component{
         }else{
             this.setState(newState, () => this.handleErrorSubmit(type, event));
         }
-        // console.log(type,this.state);
     }
 
 //Will update with user id on the confirmation page. Special action to clear the ui slice of state that contains the current task in order to redirect to the user dashboard once the user has successfully logged in and confirmed the task.
@@ -121,6 +119,7 @@ class TaskForm extends React.Component{
 // This function will handle rendering the new form for the subforms.Buttons will not function until errors are cleared on teh page.
     handleSubformSubmit(path, e) {
         // e.preventDefault();
+        // debugger;
         const error = this.state.errors;
         if(this.props.location.pathname.includes('/new')){
             if(!error['location'] && !error['duration'] && !error['description'] && !error['need_vehicle']){
@@ -147,6 +146,7 @@ class TaskForm extends React.Component{
     handleErrorSubmit(type, ...args){
         let event;
         let path;
+        debugger;
         if(args.length === 2){
             path = args[0];
             event = args[1];

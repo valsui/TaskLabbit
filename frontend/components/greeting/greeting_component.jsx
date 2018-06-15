@@ -22,7 +22,7 @@ const Greeting = ({ history, currentUser, logoutUser }) => {
     
     const handleClick = (e) => {
         e.preventDefault();
-        logoutUser();
+        logoutUser().then(() => history.push('/'));
     }
 
     const goBackTo = (path, e) => {

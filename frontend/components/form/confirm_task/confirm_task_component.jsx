@@ -38,13 +38,17 @@ class ConfirmTaskForm extends React.Component {
         let task = this.props.currentTask;
 
         if(!task){
-            return <div>i have nothing!!!</div>
+            return <div className='no-task'>
+                <img src="https://farm5.static.flickr.com/4034/4542094724_36fdaca4e1_b.jpg" />
+            </div>
         }
 
         const tasker = task.tasker;
 
         if(tasker === undefined){
-            return <div>i have no tasker!!!</div>
+            return <div className='no-task'>
+                <img src="https://farm5.static.flickr.com/4034/4542094724_36fdaca4e1_b.jpg" />
+            </div>
         }
 
         const vehicle = () => {
@@ -62,34 +66,34 @@ class ConfirmTaskForm extends React.Component {
                 <div className = 'confirm-task-form'>
                     <div className = 'title'>
                         <div className = 'type'>{task.task_type}</div>
-                        <div className = 'price'>{tasker.price_per_hour}</div>
+                        <div className = 'price'>@ ${tasker.price_per_hour}/hr</div>
                     </div>
                     <div className = 'details'>
                         <div className = 'time-date-tasker'>
                             <div className='date-time'>
-                                <div className='mini'>Date & Time</div>
+                                <div className='mini'>Date & Time: </div>
                                 <div className = 'date'>{task.date}</div>
                                 <div className = 'time'>{task.time}</div>
                             </div>
                             <div className='tasker'>
-                                <img src={tasker.image_url} />
                                 <div className='name'>
                                     <div>Tasker</div>
                                     {`${tasker.first_name} ${tasker.last_name}`}
                                 </div>
+                                <img src={tasker.image_url} />
                             </div>
                         </div>
                         <div className='location'>
-                            <div className='mini'>Task Location</div>
+                            <div className='mini'>Task Location: </div>
                             <div>{task.location}</div>
                         </div>
                         <div className='vehicle'>
-                            <div className='mini'>Vehicle Requirements</div>
+                            <div className='mini'>Vehicle Requirements: </div>
                             <div>{vehicle()}</div>
                         </div>
                         <div className='description'>
-                            <div className='mini'>Task Description</div>
-                            <div>{task.description}</div>
+                            <div className='mini'>Task Description: </div>
+                            <p className='text'>{task.description}</p>
                         </div>
                         <div className='edit'>
                             <div className='link'>

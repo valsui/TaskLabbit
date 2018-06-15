@@ -5,7 +5,8 @@ const taskReducer = (state = {}, action) => {
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_TASKS:
-            return merge({}, state, action.payload.tasks);
+            // return merge({}, state, action.payload.tasks);
+            return action.payload.tasks;
         case RECEIVE_TASK:
             sessionStorage.setItem('id', Object.values(action.payload.task)[0].id);
             return merge({}, state, action.payload.task);

@@ -5,6 +5,7 @@ const TaskDuration = (props) => {
     if (!props.errors) {
         completed = 'completed';
     }
+    // debugger;
     return (
         <div className={`task-details-subform ${completed}`}>
             <div className = 'task-duration-container'>

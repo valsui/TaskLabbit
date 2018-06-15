@@ -16,9 +16,14 @@ class TaskItem extends React.Component{
         
         const vehicle = () => {
             if(task.need_vehicle){
-                return <div className='vehicle'>Task requires vehicle</div>
+                return <div className='vehicle'>
+                <div className='title'>Location:</div>
+                Task requires vehicle
+                </div>
             }else{
-                return <div className='vehicle'>No vehicle required</div>
+                return <div className='vehicle'>
+                <div className='title'>Location:</div>
+                No vehicle required</div>
             }
         }
 
@@ -32,17 +37,22 @@ class TaskItem extends React.Component{
                     </div>
                 </div>
                     <div className='status'>{`Awesome! Your task has been booked with ${tasker.first_name} Labbit`}
+                        <div className='price'>{`@ $${tasker.price_per_hour}/hr`}</div>
                         <div className='contact'>{` Contact ${tasker.first_name} at ${tasker.email}`} </div>
                     </div>
                     <div className='datetime'>
+                        <div className='title'>Date and Time:</div>
                         <div className='date'>{getDate(task.date)}</div>
                         <div className='time'>{task.time}</div>
                     </div>
                     <div className='location-details'>
-                        <div className='location'>{task.location}</div>
-                        <div className='price'>{`@ $${tasker.price_per_hour}/hr`}</div>
+                        <div className='title'> Location:</div>
+                        <div className='location'> {task.location}</div>
+                        
                     </div>
-                    <div className='description'>{task.description}</div>
+                    <div className='description'>
+                    <div className='title'>Description:</div>
+                    {task.description}</div>
                     {vehicle()}
                     <div className='cancel'>
                         <button className='bottom-button' onClick ={() => this.props.deleteTask(task.id)}>Cancel Task</button>
