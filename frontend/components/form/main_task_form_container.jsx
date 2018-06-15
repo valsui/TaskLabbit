@@ -29,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: state.session.currentUser,
         currentTask: Object.values(state.ui.task)[0] || {},
         errors: state.errors.formErrors,
-        taskers: getByCurrentLocation(state)
+        taskers: getTaskers(state)
     }
 }
 

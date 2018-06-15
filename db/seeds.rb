@@ -103,7 +103,7 @@ task_types = ["Delivery",
                 "Laundry and Ironing",
                 "Marketing",
                 "Mounting & Installation",
-                "Office Administration",
+                "Office Administration"
                 "Packing & Shipping",
                 "Painting",
                 "Pet Sitting",

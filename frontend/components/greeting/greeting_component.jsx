@@ -5,9 +5,11 @@ const Greeting = ({ history, currentUser, logoutUser }) => {
     const sessionLinks = () => (
         <div className='navBar-big'>
             <div className='navBar-small'>
-                <img className = 'navBar-logo'
-                    src='https://i.imgur.com/rFnFZso.png'
-                    onClick = {(e) => goBackTo('/',e)}/>
+                <div className='navBar-logo'>
+                    <img
+                        src='https://i.imgur.com/ArkWnb9.png'
+                        onClick={(e) => goBackTo('/', e)} />
+                </div>
                 <div className = 'navBar-buttons'>
                     <div className='nav-button'>
                         <Link className='nav-button-link' to="/login">Login</Link>
@@ -34,9 +36,11 @@ const Greeting = ({ history, currentUser, logoutUser }) => {
         <hgroup className="header-group">
             <div className='navBar'>
                 <div className='navBar-small'>
-                    <img className='navBar-logo'
-                        src='https://i.imgur.com/rFnFZso.png'
-                        onClick={(e) => goBackTo('/', e)} />
+                    <div className='navBar-logo'>
+                        <img 
+                            src='https://i.imgur.com/ArkWnb9.png'
+                            onClick={(e) => goBackTo('/', e)} />
+                    </div>
 
                     
                     <div className='header-login'>

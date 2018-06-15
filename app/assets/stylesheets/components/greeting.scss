@@ -36,10 +36,16 @@
 }
 
 .navBar-logo {
-    width: 150px;
-    height: 50px;
-    object-fit: cover;
+    width: 160px;
+    height: 40px;
     cursor: pointer;
+    margin-top: 5px;
+    
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 
