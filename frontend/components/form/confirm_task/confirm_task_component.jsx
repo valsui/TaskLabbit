@@ -24,7 +24,6 @@ class ConfirmTaskForm extends React.Component {
     
     tasker(id){
         let tasker;
-        // debugger;
         this.props.taskers.forEach((t) => {
             if(t.id === id){
                 tasker = t;

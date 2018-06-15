@@ -5,7 +5,6 @@ const TaskDuration = (props) => {
     if (!props.errors) {
         completed = 'completed';
     }
-    // debugger;
     return (
         <div className={`task-details-subform ${completed}`}>
             <div className = 'task-duration-container'>
@@ -34,8 +33,8 @@ const TaskDuration = (props) => {
                     <div className = 'duration-radio-container-3'>
                         <input type="radio" 
                                 className = 'duration-radio-button'
-                                value ='Large - Est. 2-3 hrs'
-                                checked={props.duration === 'Large - Est. 2-3 hrs'}
+                                value ='Large - Est. 4-6 hrs'
+                                checked={props.duration === 'Large - Est. 4-6 hrs'}
                                 onChange={(e) => props.handleChange('duration', e)} />
                         <label className='duration-radio-button-label'>Large - Est. 2-3 hrs</label>
                     </div>

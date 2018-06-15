@@ -18,7 +18,6 @@ class TaskerIndex extends React.Component{
 
     render(){
 
-        // debugger;
         let zipcode = '';
         if (this.props.currentState) {
             zipcode = parser.parseAddress(this.props.currentTask.location).zip;
@@ -26,7 +25,6 @@ class TaskerIndex extends React.Component{
 
         const response = (taskers) => {
             const length = taskers.length;
-            // console.log('taskers found:', taskers);
             if (length < 1) {
                 // sessionStorage.removeItem('id');
                 return <div className='no-found-taskers'>

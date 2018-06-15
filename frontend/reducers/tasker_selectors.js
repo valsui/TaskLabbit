@@ -4,7 +4,6 @@ import parser from 'parse-address';
 //get all taskers from users slice of state
 export const getTaskers = (state) => {
     let taskers = merge({}, state.entities.users);
-    // debugger;
     if(state.session.currentUser){
         delete taskers[state.session.currentUser.id]
     }
@@ -14,9 +13,8 @@ export const getTaskers = (state) => {
 //this might not have many results
 export const getByCurrentLocation = (state) => {
     const currentTask = Object.values(state.ui.task)[0];
-    // debugger;
     if(typeof(currentTask) === 'object'){
-        // debugger;
+
         const address = parser.parseAddress(currentTask.location);
         const zipcode = parser.parseAddress(currentTask.location).zip;
         const taskers = getTaskers(state);

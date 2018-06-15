@@ -4,7 +4,6 @@ import SortedByComponent from './sorted_by_component';
 const DateTimeComponent = (props) => {
     let today = new Date();
     today = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
-    // debugger;
     let timeCompleted = 'non-completed';
     if (!props.errors.time) {
         timeCompleted = 'completed';

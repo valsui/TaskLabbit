@@ -14,7 +14,6 @@ class PickTaskerForm extends React.Component{
     }
 
     render(){
-        // debugger;
         return(
             <div className = 'pick-tasker-main-form'>
                 <div className = 'title'>
