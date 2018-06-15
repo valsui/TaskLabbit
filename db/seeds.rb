@@ -75,7 +75,7 @@ user5 = User.create(first_name: 'Gudetama',
                     num_completed_tasks: rand(50),
                     rating: rand(100),
                     num_reviews: rand(100),
-                    user_description: 'Get it out. Too lazy';
+                    user_description: 'Get it out. Too lazy')
 
 task_types = ["Delivery",
                 "Event Planning",
