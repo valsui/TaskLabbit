@@ -3,6 +3,7 @@ import MainBodyContainer from './splashbody_main_container';
 import TaskButtonContainer from '../tasks/task_button_container';
 import GreetingContainer from '../greeting/greeting_container';
 import TaskSearchContainer from '../tasks/task_search_container';
+import Footer from '../footer/footer_component';
 
 class MainHeadComponent extends React.Component {
 
@@ -44,6 +45,7 @@ class MainHeadComponent extends React.Component {
                         <MainBodyContainer />
                     </div>
                 </div>
+                <Footer />
             </div>
         )
     }
