@@ -20,7 +20,7 @@
     flex-direction: column;
     align-items: center;
     width: 70vw;
-    height: 500px;;
+    height: 500px;
     background-image: url('https://i.imgur.com/5SZRejd.jpg');
     background-size: cover; 
     background-repeat: no-repeat;
@@ -29,7 +29,7 @@
 }
 
 .main-title {
-    font-size: 30px;
+    font-size: 2vw;
     width: 600px;
     text-align: center;
     vertical-align: baseline;
@@ -55,6 +55,7 @@
     letter-spacing: 1px;
     line-height: 24px;
     width: 400px;
+    // min-width: 100px;
 }
 
 .fa-search {
