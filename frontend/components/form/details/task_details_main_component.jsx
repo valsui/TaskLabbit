@@ -51,7 +51,7 @@ class TaskDetailsForm extends React.Component{
                     handleSubmit={this.props.handleSubmit} 
                     handleErrorSubmit = {this.props.handleErrorSubmit}
                     renderSubError = {this.props.renderSubError} />
-                    <TaskDetailsText details={this.props.currentState.task.description} 
+                    <TaskDetailsText description={this.props.currentState.task.description} 
                     errors = {this.props.currentState.errors.description}
                     handleChange={this.props.handleChange} 
                     handleSubmit={this.props.handleSubmit} 

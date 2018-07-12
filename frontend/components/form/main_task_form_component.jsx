@@ -5,6 +5,7 @@ import TrustSafetyBanner from './banner/trust_safety_component';
 import TaskDetailsForm from './details/task_details_main_component';
 import PickTaskerForm from './pick_tasker/main_choose_tasker_component';
 import ConfirmTaskForm from './confirm_task/confirm_task_component';
+import Footer from '../footer/footer_component';
 import { Route } from 'react-router-dom';
 import merge from 'lodash/merge';
 import { verifyAddress } from '../../util/helpers';
@@ -267,6 +268,7 @@ class TaskForm extends React.Component{
                 <Route exact path = '/task/new' render = {TaskDetails} />
                 <Route exact path = '/task/price' render = {PickTasker} />
                 <Route exact path = '/task/confirm' render = {ConfirmTask} />
+                <Footer/>
             </div>
         )
     }
