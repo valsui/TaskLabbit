@@ -10,6 +10,8 @@
     height: 200px;
     background: white;
     border-radius: 3px;
+    position: sticky;
+    top: 100px;
 
     .datetime{
         display: flex;

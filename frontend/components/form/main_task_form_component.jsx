@@ -52,6 +52,7 @@ class TaskForm extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleErrorSubmit = this.handleErrorSubmit.bind(this);
         this.renderSubError = this.renderSubError.bind(this);
+        this.demoAddress = this.demoAddress.bind(this);
     }
 
     componentDidMount(){
@@ -100,6 +101,16 @@ class TaskForm extends React.Component{
         }else{
             this.setState(newState, () => this.handleErrorSubmit(type, event));
         }
+    }
+
+    //demoaddress button
+    demoAddress(e){
+        let newState = merge({}, this.state);
+        newState.task['location'] = '825 Battery Street San Francisco, CA 96458';
+        this.setState(newState, () => {
+            console.log(this.state)
+            this.handleErrorSubmit('location', e)
+        });
     }
 
 //Will update with user id on the confirmation page. Special action to clear the ui slice of state that contains the current task in order to redirect to the user dashboard once the user has successfully logged in and confirmed the task.
@@ -209,6 +220,7 @@ class TaskForm extends React.Component{
                                 renderSubError = {this.renderSubError}
                                 currentTask={this.props.currentTask}
                                 fetchTask={this.props.fetchTask}
+                                demoAddress={this.demoAddress}
                                 {...props}/>
             ) 
         }  

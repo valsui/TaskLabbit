@@ -18,12 +18,15 @@ const TaskLocation = (props) => {
                 </div>
                 <input className='task-location-text-input' type="text" 
                 placeholder='Enter street address' 
-                defaultValue = {props.location}
+                value={props.location}
                 onChange = {(e) => props.handleChange('location', e)}/>
                 <div className='button-container'>
                     <button className='continue-button'
                         onClick={(e) => props.handleErrorSubmit('location', '', e)}>
                             Continue</button>
+                    <button className='continue-button demoAdd'
+                        onClick={(e) => props.demoAddress(e)}>
+                            Demo Address</button>
                 </div>
             </form>
         </div>

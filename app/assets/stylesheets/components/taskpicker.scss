@@ -1,20 +1,27 @@
 .pick-tasker-main-form{
+    // height: 100vh;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     // flex: 2;
     background: $form-background;
+    // position: relative;
 
     .title{
+        width: 100%;
         display:flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: sticky;
+        top: 0px;
+        // position: absolute;
 
         .details-title{
             font-size: 24px;
             padding-bottom: 15px;
+            // position: absolute;
         }
         
 

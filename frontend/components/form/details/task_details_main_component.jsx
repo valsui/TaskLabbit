@@ -19,6 +19,10 @@ class TaskDetailsForm extends React.Component{
         }
     }
 
+    componentWillReceiveProps(){
+        console.log('newprops', this.props.currentState);
+    }
+
     render(){
         return(
             <div className = 'task-details-form'>
@@ -33,7 +37,8 @@ class TaskDetailsForm extends React.Component{
                     handleChange = {this.props.handleChange} 
                     handleSubmit = {this.props.handleSubmit} 
                     handleErrorSubmit = {this.props.handleErrorSubmit}
-                    renderSubError = {this.props.renderSubError}/>
+                    renderSubError = {this.props.renderSubError}
+                    demoAddress={this.props.demoAddress}/>
                     <TaskDuration duration={this.props.currentState.task.duration} 
                     errors = {this.props.currentState.errors.duration}
                     handleChange={this.props.handleChange} 
