@@ -109,7 +109,7 @@ class TaskForm extends React.Component{
         let newState = merge({}, this.state);
         newState.task['location'] = '825 Battery Street San Francisco, CA 96458';
         this.setState(newState, () => {
-            console.log(this.state)
+            //console.log(this.state)
             this.handleErrorSubmit('location', e)
         });
     }

@@ -20,7 +20,7 @@ class TaskDetailsForm extends React.Component{
     }
 
     componentWillReceiveProps(){
-        console.log('newprops', this.props.currentState);
+        //console.log('newprops', this.props.currentState);
     }
 
     render(){
