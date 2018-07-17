@@ -19,10 +19,6 @@ class TaskDetailsForm extends React.Component{
         }
     }
 
-    componentWillReceiveProps(){
-        //console.log('newprops', this.props.currentState);
-    }
-
     render(){
         return(
             <div className = 'task-details-form'>

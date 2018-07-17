@@ -42,7 +42,7 @@ class TaskForm extends React.Component{
                 location: " ",
                 duration: " ",
                 description: " ",
-                time: " ",
+                time: "",
                 date: " ",
                 tasker_id: " "
             },
@@ -78,7 +78,7 @@ class TaskForm extends React.Component{
             newState.task.date = (this.props.currentTask.date || '');        
             this.setState(newState);
         }
-        
+        //can use prevState and put a callback in set
     }
 
 // on change handlers - lots of code spaghetti because this handles different input types - like radio buttons and selectors
@@ -104,12 +104,11 @@ class TaskForm extends React.Component{
         }
     }
 
-    //demoaddress button
+//demoaddress button
     demoAddress(e){
         let newState = merge({}, this.state);
         newState.task['location'] = '825 Battery Street San Francisco, CA 96458';
         this.setState(newState, () => {
-            //console.log(this.state)
             this.handleErrorSubmit('location', e)
         });
     }

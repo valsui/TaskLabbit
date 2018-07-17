@@ -32,7 +32,7 @@ const DateTimeComponent = (props) => {
                     onChange={(e) => {
                         props.handleChange('time', e)}}>
 
-                    <option value="0">I'm Flexible</option>
+                    <option value="I'm Flexible">I'm Flexible</option>
                     <option value="8:00am">8:00am</option>
                     <option value="8:30am">8:30am</option>
                     <option value="9:00am">9:00am</option>
