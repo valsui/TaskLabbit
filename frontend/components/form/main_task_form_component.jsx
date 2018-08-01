@@ -106,6 +106,7 @@ class TaskForm extends React.Component{
 
 //demoaddress button
     demoAddress(e){
+        e.preventDefault();
         let newState = merge({}, this.state);
         newState.task['location'] = '825 Battery Street San Francisco, CA 96458';
         this.setState(newState, () => {
@@ -127,8 +128,7 @@ class TaskForm extends React.Component{
     }
 
 // This function will handle rendering the new form for the subforms.Buttons will not function until errors are cleared on teh page.
-    handleSubformSubmit(path, e) {
-        // e.preventDefault();
+    handleSubformSubmit(path) {
         const error = this.state.errors;
         if(this.props.location.pathname.includes('/new')){
             if(!error['location'] && !error['duration'] && !error['description'] && !error['need_vehicle']){
@@ -180,7 +180,8 @@ class TaskForm extends React.Component{
         }
         if(path){
             //handles the action of the buttons that need to render a new route
-            this.setState(newState, () => this.handleSubformSubmit(path,event));
+            // debugger;
+            this.setState(newState, () => this.handleSubformSubmit(path));
         }else {
             this.setState(newState);
         }
