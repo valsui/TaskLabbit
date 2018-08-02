@@ -7,7 +7,7 @@ class Api::TasksController < ApplicationController
     end
 
     def show
-        return (render json: ["Sorry, we're beginners and cannot find your task. Please create a new one."], status: 422) if nullId
+        return (render json: ["Sorry, we're beginners and cannot find your task. Please start a new one."], status: 422) if nullId
 
         @task = Task.find(params[:id])
         render :show
@@ -18,13 +18,12 @@ class Api::TasksController < ApplicationController
         if @task.save
             render :show
         else
-            # render json: @task.errors.full_messages, status: 422
             render json: ['Task type cannot be empty, please choose task'], status: 422
         end
     end
 
     def update
-        return (render json: ["Sorry, we're beginners and cannot find your task. Please create a new one."], status: 422) if nullId
+        return (render json: ["Sorry, we're beginners and cannot find your task. Please start a new one."], status: 422) if nullId
 
         @task = Task.find(params[:id]) if params[:id]
 
