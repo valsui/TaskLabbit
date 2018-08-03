@@ -189,7 +189,7 @@ class TaskForm extends React.Component{
             //handles the action of the buttons that need to render a new route
             this.setState(newState, () => this.handleSubformSubmit(path));
         }else {
-            this.setState(newState, () => console.log(this.state));
+            this.setState(newState);
         }
     }
 
