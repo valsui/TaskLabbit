@@ -29,7 +29,7 @@ class TaskForm extends React.Component{
             task: {
                 user_id: currentUser ? currentUser.id : null,
                 task_type: window.sessionStorage.getItem('taskType'),
-                need_vehicle: this.props.currentTask.need_vehicle || false,
+                need_vehicle: this.props.currentTask.need_vehicle || 'Not needed for task',
                 location: this.props.currentTask.location || '',
                 duration: this.props.currentTask.duration || '',
                 description: this.props.currentTask.description || '',
@@ -64,12 +64,14 @@ class TaskForm extends React.Component{
     }
 
     componentWillReceiveProps(newProps){
-        if(this.props.currentTask){
+        // debugger;
+        if(newProps.currentTask !== this.props.currentTask){
+            // debugger;
             let newState = merge({}, this.state);
             newState.task.id = (this.props.currentTask.id);
             newState.task.user_id = (this.props.currentUser ? this.props.currentUser.id : null);
             newState.task.task_type = (window.sessionStorage.getItem('taskType'));
-            newState.task.need_vehicle = (this.props.currentTask.need_vehicle || false);
+            newState.task.need_vehicle = (this.props.currentTask.need_vehicle ? 'Task Requires a car' : 'Not needed for task');
             newState.task.location = (this.props.currentTask.location || '');
             newState.task.duration = (this.props.currentTask.duration || '');
             newState.task.description = (this.props.currentTask.description || '');
@@ -97,10 +99,11 @@ class TaskForm extends React.Component{
         }else{
             newState.task[type] = event;
         }
-        if(path){
+        if (path || type === 'date'){
             this.setState(newState, () => this.handleErrorSubmit(type, path, event));
-        }else{
-            this.setState(newState, () => this.handleErrorSubmit(type, event));
+        }
+        else{
+            this.setState(newState);
         }
     }
 
@@ -133,11 +136,12 @@ class TaskForm extends React.Component{
         if(this.props.location.pathname.includes('/new')){
             if(!error['location'] && !error['duration'] && !error['description'] && !error['need_vehicle']){
                 //handle need_vehicle in post
-                if (this.state.task.need_vehicle === 'Not needed for task'){
-                    let newState = merge({}, this.state)
-                    newState.task.need_vehicle = false;
-                    this.setState(newState, () => this.props.createTask(this.state.task).then(() => this.props.history.push(path)));
-                } else if (!sessionStorage.getItem('id')){
+                // if (this.state.task.need_vehicle === 'Not needed for task'){
+                //     let newState = merge({}, this.state)
+                //     newState.task.need_vehicle = false;
+                //     this.setState(newState, () => this.props.createTask(this.state.task).then(() => this.props.history.push(path)));
+                // } else 
+                if (!sessionStorage.getItem('id')){
                     this.props.createTask(this.state.task).then(() => this.props.history.push(path));
                 }else{
                     this.props.updateTask(this.state.task).then(() => this.props.history.push(path));
@@ -146,6 +150,8 @@ class TaskForm extends React.Component{
         }else if(this.props.location.pathname.includes('/price')){
             if(!error['time'] && !error['date'] && !error['tasker_id']){
                 this.props.updateTask(this.state.task).then(() => this.props.history.push(path));
+            }else{
+                this.handleErrorSubmit('date');
             }
         }
     }
@@ -161,7 +167,7 @@ class TaskForm extends React.Component{
         }else{
             event = args[0];
         }
-        if(event.type){
+        if(event && event.type){
             event.preventDefault();
         }
         let newState = merge({}, this.state)
@@ -173,6 +179,7 @@ class TaskForm extends React.Component{
             }
         }else{
             if (this.state.task[type]){
+                // debugger;
                 newState.errors[type] = false;
             }else{
                 newState.errors[type] = 'Cannot be blank';
@@ -180,10 +187,9 @@ class TaskForm extends React.Component{
         }
         if(path){
             //handles the action of the buttons that need to render a new route
-            // debugger;
             this.setState(newState, () => this.handleSubformSubmit(path));
         }else {
-            this.setState(newState);
+            this.setState(newState, () => console.log(this.state));
         }
     }
 

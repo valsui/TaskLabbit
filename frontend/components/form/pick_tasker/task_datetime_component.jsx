@@ -2,6 +2,7 @@ import React from 'react';
 import SortedByComponent from './sorted_by_component';
 
 const DateTimeComponent = (props) => {
+    // debugger;
     let today = new Date();
     today = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
     let timeCompleted = 'non-completed';
@@ -23,8 +24,10 @@ const DateTimeComponent = (props) => {
                     <i className="far fa-clock"></i>
                     Task Date & Time:
                 </div>
-                <input type="date" className = {`date ${dateCompleted}`}
+                <input type="date" 
+                    className = {`date ${dateCompleted}`}
                     placeholder = 'Please pick a date'
+                    value = {props.currentState.task.date}
                     onChange={(e) => {props.handleChange('date', e)}}
                     />
                 {props.renderSubError('time')}

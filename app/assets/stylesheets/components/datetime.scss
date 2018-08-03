@@ -68,6 +68,11 @@
     }
 }
 
+.sub-error {
+    color: red;
+    font-size: 12px;
+}
+
 .datetime-container:hover {
     box-shadow: 1px 1px 6px 2px $border-grey;
 }

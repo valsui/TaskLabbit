@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     store = configureStore(preloadedState);
 
-    // window.store = store;
+    window.store = store;
 
     ReactDOM.render(<Root store={ store } />, root);
 });

@@ -30,14 +30,14 @@ const TaskVehicle = (props) => {
                                     onChange={(e) => props.handleChange('need_vehicle', e)} />
                             <label className='vehicle-radio-button-label'>Task Requires a car</label>
                         </div>
-                        <div className='vehicle-radio-container-3'>
+                        {/* <div className='vehicle-radio-container-3'>
                             <input type="radio" 
                                 className='vehicle-radio-button'
                                 value='Task Requires a truck'
                                 checked={props.need_vehicle === 'Task Requires a truck'}
                                 onChange={(e) => props.handleChange('need_vehicle', e)} />
                             <label className='vehicle-radio-button-label'>Task Requires a truck</label>
-                        </div>
+                        </div> */}
                     </div>
                         <div className= 'button-container'>
                             <button className= 'continue-button' 
