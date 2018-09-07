@@ -2,7 +2,9 @@ class Api::TasksController < ApplicationController
     before_action :require_logged_in, except: [:show, :create, :update]
 
     def index
-        @tasks = Task.all.where(user_id: task_params[:user_id])
+        # @tasks = Task.all.where(user_id: task_params[:user_id])
+         @tasks = Task.includes(:tasker).all.where(user_id: task_params[:user_id])
+        #  byebug
         render :index
     end
 
